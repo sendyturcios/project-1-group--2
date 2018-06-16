@@ -32,25 +32,24 @@ SupplementMe will use Amazon(pending) or eBay(pending) and Walmart(confirmed) AP
 					
 <li>Users will then be taken to a results page. This page will display two search results per product. Users will also see results with related content such articles that would provide more information about the user's result.</li>					
 					
-<h2>Tasks Breakdown:</h2>					
+<h2>Task Breakdown:</h2>					
 					
-<li>HTML/CSS (Questionnaire content and layout):
+HTML/CSS (Content and Layout):
 
-Sendy/					
-Luis					
+<li>Sendy</li>
+<li>Luis</li>					
 					
-<li>Questionnaire (JavaScript Functionality):</li>	
+Questionnaire (JavaScript Functionality):
 
-Sendy/					
-Luis					
+<li>Sendy</li>					
+<li>Luis</li>					
 					
-<li>Database - Storing user answers (Firebase):	</li>				
+Database - Storing User Data (Firebase):				
 
-William/					
-Dan					
+<li>William</li>					
+<li>Dan</li>					
 					
-<li>API (Results page content and display):</li>
-
-Dan/					
-William					
+API (Results page content and display):
+<li>William</li>					
+<li>Dan</li>					
 					
