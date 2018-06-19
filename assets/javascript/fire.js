@@ -16,3 +16,13 @@ let fdata = firebase.database().ref();
 let questions = {
     "questions" : []
 }
+
+function setSupplementMeQuestions() {
+    let quest = {
+        "questions" : []
+    }
+    quest.questions.push("1");
+    quest.questions.push("2");
+    //fdataAdmin.ref().set(quest);
+    firebase.database().ref().set(quest);
+}

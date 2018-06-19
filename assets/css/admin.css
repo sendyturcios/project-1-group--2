@@ -1,0 +1,39 @@
+.adminContainer {
+    align-items: center;
+}
+
+.loginDiv {
+    width: 315px;
+    margin: 100px auto;
+}
+
+.loginForm {
+    background-color: mediumslateblue;
+}
+
+.loginInput {
+    width: 90%;
+    margin: 15px;
+}
+
+.loginButton {
+    width: 100px;
+    background-color: greenyellow;
+    margin: 0 106px 10px;
+    font-size: 25px;
+    font-family: serif;
+}
+
+.loginHeader {
+    font-size: 22px;
+    margin: 5px 24px;
+}
+
+.loginLabel {
+    margin: 0 16px;
+    font-size: 20px;
+}
+
+.loginFontColor {
+    color: white;
+}
