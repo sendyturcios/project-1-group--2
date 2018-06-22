@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+.storeDiv {
+    background-color: darkcyan;
+    width: 220px;
+}
+
+.storeNameP {
+    color: white;
+    font-size: 30px;
+}
+
+.storeP {
+    color: white;
+    font-size: 20px;
+}
