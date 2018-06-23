@@ -12,10 +12,30 @@
   text-align: right;
 }
 
+.border {
+  font-size: 50px;
+  font-family: 'Marvel', sans-serif;
+  font-weight: bold;
+
+}
+
 div.clearfix.border {
   text-align: center;
   padding: 50px;
+  border: none;
+ 
 }
+
+
+.how__title {
+  font-family: 'Marvel', sans-serif;
+} 
+
+.how__subtitle {
+  font-family: 'Marvel', sans-serif;
+}
+
+
 
 .content-strip {
   padding: 40px;
