@@ -13,7 +13,7 @@ $(document).ready(function() {
        {
            "q": {
                "question": "How old are you?",
-               "options": ["18-24", "25-34", "35-44", "45-54", "55+"],
+               "options": ["20's", "30's", "40's", "50's", "60+"],
                "answer": "",
            },
        },
@@ -116,11 +116,9 @@ $(document).ready(function() {
            },
        }
     ]
-    
-    window.console.log("hello");
-    
-    var QandA = 1; 
-    
+        
+    let QandA = 1; 
+   
     
     //This funtion only creats the first question
     function name(){
@@ -135,8 +133,7 @@ $(document).ready(function() {
             "id": "submit"
         });
         $(form).append(input).append(button);
-        $("#anwsers").html(form);
-        
+        $("#anwsers").html(form); 
     }
     
     name();
@@ -156,21 +153,32 @@ $(document).ready(function() {
         $("#question").text(surveyResults[QandA].q.question);
         grabanswers();
         console.log(surveyResults[QandA].q.question);
-        QandA++;
     }
     
     function grabanswers(){
-        let ansDiv = $("<div>");
+        $("#anwsers").empty();
+        let answers = "";
+        let ansBtn;
         for (let i = 0; i < surveyResults[QandA].q.options.length; i++){
-            let answers = surveyResults[QandA].q.options[i];
+            answers = surveyResults[QandA].q.options[i];
+            ansBtn = $("<button>");
+            ansBtn.text(answers).attr({
+                "class": "btn"
+            });
+            $("#anwsers").append(ansBtn);
             console.log(answers)
-        }
-    
-    
-        $("#answers").append();
-    
+        }    
     }
     
+    $(document).on("click", ".btn", function(){
+        QandA++;
+        console.log(QandA);
+        grabQuestion();
+        grabanswers();
+
+    })
+
+
     })
     
     
