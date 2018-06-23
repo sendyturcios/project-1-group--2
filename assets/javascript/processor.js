@@ -1,118 +1,5 @@
-let surveyResults = [
-    {
-        "q": {
-            "question": "What is your name?",
-            "options": "",
-            "answer": "",
-        }
-    },
-    {
-        "q": {
-            "question": "How old are you?",
-            "options": ["18-24", "25-34", "35-44", "45-54", "55+"],
-            "answer": "18-24",
-        },
-    },
-    {
-        "q": {
-            "question": "How often do you workout?",
-            "options": ["0", "1-2/ Week", "3-4/ Week"],
-            "answer": "1-2/ Week",
-        }
-    },
-    {
-        "q": {
-            "question": "How often do you eat a balanced meal?",
-            "options": ["0", "1 meal/ day", "2meals/ day"],
-            "answer": "1 meal/ day",
-        }
-    },
-    {
-        "q": {
-            "question": "On Average, how many cups of water do you drink per day?",
-            "options": ["0", "1-2", "3-5"],
-            "answer": "3-5",
-        }
-    },
-    {
-        "q": {
-            "question": "On Average, how many hours of sleep do you get per night?",
-            "options": ["1-4", "5-6"],
-            "answer": "1-4",
-        }
-    },
-    {
-        "q": {
-            "question": "How often to do you feel tired/fatigued?",
-            "options": ["Rarely", "Sometimes", "Often", "All the time"],
-            "answer": "All the time",
-        }
-    },
-    {
-        "q": {
-            "question": "How often do you feel stressed?",
-            "options": ["Rarely", "Sometimes", "Often", "All the time"],
-            "answer": "Often",
-        }
-    },
-    {
-        "q": {
-            "question": "How often do you have trouble focusing?",
-            "options": ["Rarely", "Sometimes", "Often", "All the time"],
-            "answer": "Sometimes",
-        }
-    },
-    {
-        "q": {
-            "question": "How often do you get at least 20+ minutes of sun per day?",
-            "options": ["Never", "Rarely", "Sometimes", "Often"],
-            "answer": "Never",
-        }
-    },
-    {
-        "q": {
-            "question": "How would you descride your mood?",
-            "options": ["'(", ":(", ":|", ":)"],
-            "answer": ":(",
-        }
-    },
-    {
-        "q": {
-            "question": "Are you looking to lose weight?",
-            "options": ["Yes", "No"],
-            "answer": "No",
-        }
-    },
-    {
-        "q": {
-            "question": "How many bowel movements do you have per day?",
-            "options": ["0", "1", "2"],
-            "answer": "1",
-        }
-    },
-    {
-        "q": {
-            "question": "Do you every feel gassy/bloated?",
-            "options": ["Rarely", "Sometimes", "Often", "All the time"],
-            "answer": "All the time",
-        }
-    },
-    {
-        "q": {
-            "question": "Do dairy products upset your stomach?",
-            "options": ["Rarely", "Sometimes", "Often", "All the time"],
-            "answer": "Often",
-        }
-    },
-    {
-        "q": {
-            "question": "Are you worried about hair loss?",
-            "options": ["Yes", "No"],
-            "answer": "Yes",
-        },
-    }
-]
 
+let surveyResults = [];
 let recKindOfProds = [];
 
 let suppChart = [
@@ -230,12 +117,6 @@ let suppChart = [
     }
 ]
 
-function sleep(ms) {
-    var unixtime_ms = new Date().getTime();
-    while (new Date().getTime() < unixtime_ms + ms) { }
-}
-
-
 function calculateProducts() {
     let suppItems = [];
     for (let i = 0; i < surveyResults.length; i++) {
@@ -265,7 +146,7 @@ function calculateProducts() {
 function getWalmartProducts() {
     let container = $(".productContainer");
     container.empty();
-    findWalmartProducts(recKindOfProds, container);
+    walmartBegin(container);   
 }
 
 function getWalmartStoresByCity(city) {
@@ -279,9 +160,12 @@ function getWalmartStoresByZip(zip) {
 }
 
 function start() {
-   calculateProducts();
-    getWalmartProducts(); 
-    getWalmartStoresByCity("Houston"); 
-    getWalmartStoresByZip("77447");  
+    surveyResults = getSurveyResultsFromStorage();
+    calculateProducts();
+    getWalmartProducts();
+    //getWalmartStoresByCity("Houston");
+ //   getWalmartStoresByZip("77447");
 }
+
+start();
 
