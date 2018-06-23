@@ -109,7 +109,6 @@ function buildHeader(elemTag) {
 function getData(response, category) {
     for (let i = 0; i < response.items.length; i++) {       
         let item = response.items[i];
-        console.log(item);
         let trM = $("<tr>");
         try {
             trCounter++;
@@ -141,7 +140,7 @@ function getData(response, category) {
             addToCartButM.addClass("optionButton");
             addToCartButM.attr("href", item.addToCartUrl);
             addToCartButM.text("Add To Cart");
-            findStoresButM.addClass("optionButton");
+            findStoresButM.addClass("storeButton");
             findStoresButM.text("Find Stores");
             researchButM.addClass("optionButton");
             researchButM.text("Research");

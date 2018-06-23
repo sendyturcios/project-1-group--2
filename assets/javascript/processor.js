@@ -167,5 +167,9 @@ function start() {
  //   getWalmartStoresByZip("77447");
 }
 
+$(document).on("click", ".storeButton", function() {
+    popUpStoreModal();
+})
+
 start();
 

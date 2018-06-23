@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="assets/css/reset.css" rel="stylesheet" type="text/css">
     <link href="https://unpkg.com/basscss@7.1.1/css/basscss.min.css" <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/walmart.css">
     <link rel="stylesheet" href="assets/css/walmartStoreModal.css">
+    <link rel="stylesheet" href="assets/css/walmart.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="assets/javascript/jsonProcessor.js"></script>
     <script defer type="text/javascript" src="assets/javascript/walmartStoreModal.js"></script>
@@ -20,15 +20,38 @@
 
 <body>
     <!-- The Modal -->
-<div id="myModal" class="modal">
+    <div id="storeModal" class="modal">
 
         <!-- Modal content -->
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <p>Some text in the Modal..</p>
+        <div class="modal-content suppMeModalContent">
+            <span class="close">&times;</span>
+            <!-- <p>Some text in the Modal..</p> -->
+
+
+            <form class="sm-col-12">
+                <label>Walmart Store Locater</label>
+                <label>Find Nearest Stores</label>
+                <input type="text" class="block col-12 mb1 field">
+                <label>Password</label>
+                <input type="password" class="block col-12 mb1 field">
+                <label>Select</label>
+                <select class="block col-12 mb1 field">
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                    <option>Option 4</option>
+                    <option>Option 5</option>
+                </select>
+                <label class="block col-12 mb2">
+                    <input type="checkbox" checked> Remember me
+                </label>
+                <!-- <button type="submit" class="btn btn-primary">Sign In</button> -->
+                <button type="reset" class="btn btn-primary black bg-gray">Cancel</button>
+            </form>
+
         </div>
-      
-      </div>
+
+    </div>
     <div class="conatiner">
         <div class="row">
             <div class="col-12">
@@ -38,6 +61,7 @@
             </div>
         </div>
     </div>
+
 
 
 </body>

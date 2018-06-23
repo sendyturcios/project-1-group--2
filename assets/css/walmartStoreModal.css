@@ -37,3 +37,7 @@
     cursor: pointer;
 }
 
+.suppMeModalContent {
+    max-width: 500px;
+}
+
