@@ -145,7 +145,9 @@ $(document).ready(function() {
         surveyResults[0].q.answer = ans1;
 
         if (ans1 === ""){
-           $("#warning-msg").text("GIVE ME YOUR NAME!!!") 
+            let p = $("<p>");
+            let warningMsg = p.text("GIVE ME YOUR NAME!!!");
+            $("form").append(warningMsg);
         } else {
             $("#question").empty();
             $("#anwsers").empty();
@@ -155,15 +157,20 @@ $(document).ready(function() {
     
     
     function grabQuestion() {
+        if (QandA < 16){
         $("#question").text(surveyResults[QandA].q.question);
         grabAnswers();
         console.log(surveyResults[QandA].q.question);
+        } else {
+            $("#question").empty(); 
+        }
     }
     
     function grabAnswers(){
         $("#anwsers").empty();
         let answers = "";
         let ansBtn;
+        if (QandA < 16) {
         for (let i = 0; i < surveyResults[QandA].q.options.length; i++){
             answers = surveyResults[QandA].q.options[i];
             ansBtn = $("<button>");
@@ -173,6 +180,7 @@ $(document).ready(function() {
             });
             $("#anwsers").append(ansBtn);
         }    
+    }
     }
     
     $(document).on("click", ".btn", function(){
@@ -186,10 +194,9 @@ $(document).ready(function() {
         grabAnswers();
 
 
-        if (surveyResults[QandA] === 16) {
-        alert("hello");    
+        if (surveyResults[15].q.answer) {
+       // alert("hello");    
         sendSurveyResultsToStorage(surveyResults)
-        getSurveyResultsFromStorage()
         }
     })
 
