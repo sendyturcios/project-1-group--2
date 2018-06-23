@@ -124,7 +124,7 @@ function getData(response, category) {
             let optionsDivM = $("<div>");
             let addToCartButM = $("<a>");
             let findStoresButM = $("<button>");
-            let researchButM = $("<button>");
+            let researchButM = $("<a>");
             nameM.text(item.name);
             categoryDivM.addClass("categoryDiv")
             categoryDivM.text(category);
@@ -143,6 +143,7 @@ function getData(response, category) {
             findStoresButM.addClass("storeButton");
             findStoresButM.text("Find Stores");
             researchButM.addClass("optionButton");
+            researchButM.attr("href", "SupplementMe.html");
             researchButM.text("Research");
             optionsDivM.addClass("optionsDiv");
             optionsDivM.append(addToCartButM).append(findStoresButM).append(researchButM);
