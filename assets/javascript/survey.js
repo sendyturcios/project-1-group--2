@@ -142,20 +142,25 @@ $(document).ready(function() {
         event.preventDefault();
         let ans1 = $("#name").val();
         console.log(ans1);
-        surveyResults[0].q.answer = ans1
-        $("#question").empty();
-        $("#anwsers").empty();
-        grabQuestion()
+        surveyResults[0].q.answer = ans1;
+
+        if (ans1 === ""){
+           $("#warning-msg").text("GIVE ME YOUR NAME!!!") 
+        } else {
+            $("#question").empty();
+            $("#anwsers").empty();
+            grabQuestion();
+        }
     });
     
     
     function grabQuestion() {
         $("#question").text(surveyResults[QandA].q.question);
-        grabanswers();
+        grabAnswers();
         console.log(surveyResults[QandA].q.question);
     }
     
-    function grabanswers(){
+    function grabAnswers(){
         $("#anwsers").empty();
         let answers = "";
         let ansBtn;
@@ -163,19 +168,29 @@ $(document).ready(function() {
             answers = surveyResults[QandA].q.options[i];
             ansBtn = $("<button>");
             ansBtn.text(answers).attr({
-                "class": "btn"
+                "class": "btn",
+                "data-btn": answers
             });
             $("#anwsers").append(ansBtn);
-            console.log(answers)
         }    
     }
     
     $(document).on("click", ".btn", function(){
-        QandA++;
         console.log(QandA);
+        let btnVal = $(this).attr("data-btn");
+        console.log("this console " + btnVal);
+        surveyResults[QandA].q.answer = btnVal
+        console.log(surveyResults[QandA].q.answer)
+        QandA++;
         grabQuestion();
-        grabanswers();
+        grabAnswers();
 
+
+        if (surveyResults[QandA] === 16) {
+        alert("hello");    
+        sendSurveyResultsToStorage(surveyResults)
+        getSurveyResultsFromStorage()
+        }
     })
 
 
