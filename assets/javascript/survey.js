@@ -179,8 +179,15 @@ $(document).ready(function() {
                 "data-btn": answers
             });
             $("#anwsers").append(ansBtn);
+            if (QandA === 15){
+                $(ansBtn).empty();
+                let a = $("<a>");
+                a.text(answers).attr("href", "results.html");
+                $(ansBtn).append(a);
+            }
         }    
-    }
+
+     }
     }
     
     $(document).on("click", ".btn", function(){
@@ -192,10 +199,8 @@ $(document).ready(function() {
         QandA++;
         grabQuestion();
         grabAnswers();
-
-
         if (surveyResults[15].q.answer) {
-       // alert("hello");    
+       // alert("hello");  
         sendSurveyResultsToStorage(surveyResults)
         }
     })
