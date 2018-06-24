@@ -26,20 +26,25 @@
         <div class="modal-content suppMeModalContent">
             <span class="close">&times;</span>
             <!-- <p>Some text in the Modal..</p> -->
-            <form method="post" action="form-handler.html" class="sm-col-12" onsubmit="return checkFform(this);">
+            <form method="post" action="" class="sm-col-12" onsubmit="return checkForm(this);">
                 <label class="modalLabel">Walmart Store Locater</label>
                 <label class="modalLabel">Find Nearest Stores</label>
-                <label>By City</label>                
+                <label>By City</label>
                 <input name="city" type="text" id="cityInputId" class="block col-12 mb1 field">
-                <label name="cityError"></label>                
+                <label name="cityError"></label>
                 <label>By Zip code</label>
                 <input name="zip" type="text" id="zipId" class="block col-12 mb1 field">
                 <label name="zipError"></label>
                 <!-- <button type="submit" class="btn btn-primary">Sign In</button> -->
-                <input type="submit" id="findStoreId" class="btn btn-primary black bg-gray" value="Find Stores"</input>
+                <input type="submit" id="findStoreId" class="btn btn-primary black bg-gray" value="Find Stores" </input>
             </form>
         </div>
 
+    </div>
+    <div id="errorModal" class="modal">
+        <div id="errorModalId" class="modal-content suppMeModalContent">
+            
+        </div>
     </div>
     <div class="conatiner">
         <div class="row">

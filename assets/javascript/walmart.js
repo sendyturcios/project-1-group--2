@@ -11,20 +11,9 @@
 
 let apiKey = "8nvceubtr5ha96hcrf8g96r8";
 let prodResponse = [];
+let trCounter = 0;
+let table = $("<table>");
 
-//----------------------------------------------------------------------------------------------------------
-
-function findWalmartStoresByCity(city, elemTag) {
-    let query = "http://api.walmartlabs.com/v1/stores?apiKey=" + apiKey + "&city=" + city + "&format=json";
-    $.ajax({
-        url: query,
-        method: "GET",
-        dataType: 'jsonp'
-    }).then(function (response) {
-        displayResponseStores(response, elemTag);
-    }).catch(function (err) {
-    });
-}
 
 //----------------------------------------------------------------------------------------------------------
 
@@ -74,10 +63,11 @@ function findWalmartProducts(categories, elemTag) {
 }
 
 //----------------------------------------------------------------------------------------------------------
-let trCounter = 0;
-let table = $("<table>");
 
-function buildHeader(elemTag) {    
+
+function buildHeader(elemTag) {  
+    table = $("<table>");  
+    trCounter = 0;
     let tr = $("<tr>");
     let category = $("<td>");
     let categoryDiv = $("<div>");
@@ -124,6 +114,7 @@ function getData(response, category) {
             let optionsDivM = $("<div>");
             let addToCartButM = $("<a>");
             let findStoresButM = $("<button>");
+            let researchDivM = $("<div>");
             let researchButM = $("<a>");
             nameM.text(item.name);
             categoryDivM.addClass("categoryDiv")
@@ -142,12 +133,14 @@ function getData(response, category) {
             addToCartButM.text("Add To Cart");
             findStoresButM.addClass("storeButton");
             findStoresButM.text("Find Stores");
-            researchButM.addClass("optionButton");
-            researchButM.attr("webpage", "SupplementMe.html").attr("category", category);
-            researchButM.text("Research");
-            optionsDivM.addClass("optionsDiv research");
-            optionsDivM.attr("webpage", "SupplementMe.html").attr("category", category);
-            optionsDivM.append(addToCartButM).append(findStoresButM).append(researchButM);
+            researchButM.addClass("optionButton");            
+            researchButM.text("Research " + category);
+            researchButM.attr("href", "#");
+            researchDivM.attr("webpage", "SupplementMe.html").attr("category", category);
+            researchDivM.addClass("research");
+            researchDivM.append(researchButM);
+            optionsDivM.addClass("optionsDiv");
+            optionsDivM.append(addToCartButM).append(findStoresButM).append(researchDivM);
             optionsM.append(optionsDivM);
             if (trCounter % 2 === 0) {
                 trM.addClass("trChildEven");
@@ -164,46 +157,4 @@ function getData(response, category) {
 }
 
 
-//----------------------------------------------------------------------------------------------------------
-
-function displayResponseStores(response, elemTag) {
-    let count = response.length;
-    for (let i = 0; i < count; i++) {
-        let newDiv = $("<div>");
-        let newName = $("<p>");
-        let newStreet = $("<p>");
-        let newCity = $("<p>");
-        let newState = $("<p>");
-        let newZip = $("<p>");
-        let newPhone = $("<p>");
-        let newSunOpen = $("<p>");
-        newName.addClass("storeNameP");
-        newName.text(response[i].name);
-        newStreet.addClass("storeP");
-        newStreet.text(response[i].streetAddress);
-        newCity.addClass("storeP");
-        newCity.text(response[i].city);
-        newState.addClass("storeP");
-        newState.text(response[i].stateProvCode);
-        newZip.addClass("storeP");
-        newZip.text(response[i].zip);
-        newPhone.addClass("storeP");
-        newPhone.text(response[i].phoneNumber);
-        newSunOpen.addClass("storeP");
-        if (response[i].sundayOpen === true) {
-            newSunOpen.text("Open on Sundays");
-        }
-        else {
-            if (response[i].sundayOpen === false) {
-                newSunOpen.text("Closed on Sundays");
-            }
-            else {
-                newSunOpen.text("Open on Sundays: Not determined");
-            }
-        }
-        newDiv.addClass("storeDiv");
-        newDiv.append(newName).append(newStreet).append(newCity).append(newState).append(newZip).append(newPhone).append(newSunOpen);
-        elemTag.append(newDiv);
-    }
-}
 
