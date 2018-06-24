@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     let city = window.localStorage.getItem("city");
     let zip = window.localStorage.getItem("zip");
     let apiKey = "8nvceubtr5ha96hcrf8g96r8";
@@ -18,6 +18,20 @@ $(document).ready(function() {
             displayResponseStores(response, elemTag);
         }).catch(function (err) {
             console.log(err);
+        });
+    }
+
+    //----------------------------------------------------------------------------------------------------------    
+
+    function findWalmartStoresByZip(zip, elemTag) {
+        let query = "http://api.walmartlabs.com/v1/stores?apiKey=" + apiKey + "&zip=" + zip + "&format=json";
+        $.ajax({
+            url: query,
+            method: "GET",
+            dataType: 'jsonp'
+        }).then(function (response) {
+            displayResponseStores(response, elemTag);
+        }).catch(function (err) {
         });
     }
 
@@ -155,5 +169,8 @@ $(document).ready(function() {
 
     if (city !== "" && zip === "") {
         listWalmartStoresByCity(city);
+    }
+    if (city === "" && zip !== "") {
+        listWalmartStoresByCity(zip);
     }
 });
