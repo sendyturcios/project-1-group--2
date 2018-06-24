@@ -151,7 +151,8 @@ function getWalmartProducts() {
 
 function getWalmartStoresByCity(city) {
     let container = $(".productContainer");
-    findWalmartStoresByCity(city, container);
+    container.empty();
+    listWalmartStoresByCity(city, container);    
 }
 
 function getWalmartStoresByZip(zip) {
@@ -172,13 +173,7 @@ $(document).on("click", ".storeButton", function() {
 })
 
 $(document).on("click", ".research", function() {
-    let category = $(this).attr("category");
-    let webPage = $(this).attr("webpage");
-    console.log($(this));
-    console.log(category);
-    console.log(webPage);
-    sendCategoryToStorage(category);
-    window.location.href = webPage;
+    window.open("SupplementMe.html");
 })
 
 start();
