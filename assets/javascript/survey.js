@@ -196,6 +196,7 @@ $(document).ready(function() {
 
         if (surveyResults[15].q.answer) {
        // alert("hello");    
+       console.log(surveyResults);
         sendSurveyResultsToStorage(surveyResults)
         }
     })

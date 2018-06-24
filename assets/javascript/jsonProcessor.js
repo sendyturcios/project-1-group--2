@@ -19,4 +19,13 @@ function getSurveyResultsFromStorage() {
     return answerObject;
 }
 
+function sendCategoryToStorage(category) {
+    window.localStorage.setItem("category", category);
+}
+
+function getCategoryFromStorage() {
+    let cat = window.localStorage.getItem("category");
+    return cat;
+}
+
 

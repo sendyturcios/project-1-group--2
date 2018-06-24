@@ -143,9 +143,10 @@ function getData(response, category) {
             findStoresButM.addClass("storeButton");
             findStoresButM.text("Find Stores");
             researchButM.addClass("optionButton");
-            researchButM.attr("href", "SupplementMe.html");
+            researchButM.attr("webpage", "SupplementMe.html").attr("category", category);
             researchButM.text("Research");
-            optionsDivM.addClass("optionsDiv");
+            optionsDivM.addClass("optionsDiv research");
+            optionsDivM.attr("webpage", "SupplementMe.html").attr("category", category);
             optionsDivM.append(addToCartButM).append(findStoresButM).append(researchButM);
             optionsM.append(optionsDivM);
             if (trCounter % 2 === 0) {

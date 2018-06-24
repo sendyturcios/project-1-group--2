@@ -13,7 +13,7 @@ let suppChart = [
     {
         "q": {
             "question": "How old are you?",
-            "options": ["18-24", "25-34", "35-44", "45-54", "55+"],
+            "options": ["20's", "30's", "40's", "50's", "60+"],
             "products": [["Iodine"], ["Iodine"], ["Iodine", "Tumeric"], ["Iodine", "Tumeric"], ["Iodine", "Tumeric"]]
         }
     },
@@ -41,8 +41,8 @@ let suppChart = [
     {
         "q": {
             "question": "On Average, how many hours of sleep do you get per night?",
-            "options": ["1-4", "5-6"],
-            "products": [["Iodine"], ["Iodine"]]
+            "options": ["3-5", "5-6", "6-8"],
+            "products": [["Iodine"], ["Iodine"], ["Iodine"]]
         }
     },
     {
@@ -169,6 +169,16 @@ function start() {
 
 $(document).on("click", ".storeButton", function() {
     popUpStoreModal();
+})
+
+$(document).on("click", ".research", function() {
+    let category = $(this).attr("category");
+    let webPage = $(this).attr("webpage");
+    console.log($(this));
+    console.log(category);
+    console.log(webPage);
+    sendCategoryToStorage(category);
+    //window.location.href = webPage;
 })
 
 start();
