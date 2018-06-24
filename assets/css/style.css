@@ -1,4 +1,9 @@
  
+#banner {
+  background-image: url(images/clouds-fashion-free-103123.jpg);
+  background-size: cover;
+}
+
 .white {
     color: black;
 }
@@ -19,9 +24,6 @@
 
 
 /* button css */
-
-
-
 
 
 div.clearfix.border {
@@ -94,3 +96,42 @@ div.clearfix.border {
  font-family: 'Marvel', sans-serif;
  font-size: 50px;
 }
+
+
+
+/*   Breakpoints */
+
+
+@media only screen and (max-width: 992px) {
+  #banner {
+    background-image: url(images/mobile-clouds-fashion-free.jpg);
+    background-size: cover;
+  }
+
+
+
+}
+
+@media only screen and (max-width: 768px) {
+  #banner {
+    background-image: url(images/mobile-clouds-fashion-free.jpg);
+    background-size: cover;
+
+  }
+
+}
+
+@media only screen and (max-width: 576px) {
+  #banner {
+    background-image: url(images/mobile-clouds-fashion-free.jpg);
+    background-size: cover;
+    height: 250px;
+  }
+
+  .h1 {
+    font-size: 16px;
+    color: #fff; 
+  }
+
+}
+
