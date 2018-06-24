@@ -8,9 +8,7 @@
   text-align: center;
 }
 
-.center {
-  text-align: right;
-}
+
 
 .border {
   font-size: 50px;
@@ -19,6 +17,13 @@
 
 }
 
+
+/* button css */
+
+
+
+
+
 div.clearfix.border {
   text-align: center;
   padding: 50px;
@@ -26,7 +31,7 @@ div.clearfix.border {
  
 }
 
-
+/* google font used for middle section - instructions for user */
 .how__title {
   font-family: 'Marvel', sans-serif;
 } 
@@ -36,11 +41,15 @@ div.clearfix.border {
 }
 
 
-
+/* this was for content strip - hidden for now
 .content-strip {
   padding: 40px;
 }
 
+*/
+
+
+/* social media icons*/
 
 
 .fa {
@@ -72,4 +81,16 @@ div.clearfix.border {
 .fa-instagram {
   background: #125688;
   color: white;
+}
+
+
+
+
+/*   The following is styling for survey question page  */
+
+
+.survey-content{
+ text-align: center;
+ font-family: 'Marvel', sans-serif;
+ font-size: 50px;
 }
