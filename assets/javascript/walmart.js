@@ -14,21 +14,6 @@ let prodResponse = [];
 let trCounter = 0;
 let table = $("<table>");
 
-
-//----------------------------------------------------------------------------------------------------------
-
-function findWalmartStoresByZip(zip, elemTag) {
-    let query = "http://api.walmartlabs.com/v1/stores?apiKey=" + apiKey + "&zip=" + zip + "&format=json";
-    $.ajax({
-        url: query,
-        method: "GET",
-        dataType: 'jsonp'
-    }).then(function (response) {
-        displayResponseStores(response, elemTag);
-    }).catch(function (err) {
-    });
-}
-
 //----------------------------------------------------------------------------------------------------------
 
 function walmartBegin(container) {    
@@ -41,7 +26,7 @@ function walmartBegin(container) {
 function findWalmartProducts(categories, elemTag) {
     let category = categories[0];
     categories.shift();
-    let query = "http://api.walmartlabs.com/v1/search?apiKey=" + apiKey + "&query=" + category + "&format=json";
+    let query = "https://api.walmartlabs.com/v1/search?apiKey=" + apiKey + "&query=" + category + "&format=json";
     $.ajax({
         url: query,
         method: "GET",
