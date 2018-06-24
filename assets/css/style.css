@@ -1,6 +1,7 @@
  
 #banner {
-  background-image: url(images/clouds-fashion-free-103123.jpg)
+  background-image: url(images/clouds-fashion-free-103123.jpg);
+  background-size: cover;
 }
 
 .white {
@@ -103,15 +104,17 @@ div.clearfix.border {
 
 @media only screen and (max-width: 992px) {
   #banner {
-    background-image: url(images/clouds-fashion-free-103123.jpg);
+    background-image: url(images/mobile-clouds-fashion-free.jpg);
     background-size: cover;
   }
+
+
 
 }
 
 @media only screen and (max-width: 768px) {
   #banner {
-    background-image: url(images/clouds-fashion-free-103123.jpg);
+    background-image: url(images/mobile-clouds-fashion-free.jpg);
     background-size: cover;
 
   }
@@ -120,9 +123,14 @@ div.clearfix.border {
 
 @media only screen and (max-width: 576px) {
   #banner {
-    background-image: url(images/clouds-fashion-free-103123.jpg);
+    background-image: url(images/mobile-clouds-fashion-free.jpg);
     background-size: cover;
+    height: 250px;
+  }
 
+  .h1 {
+    font-size: 16px;
+    color: #fff; 
   }
 
 }
