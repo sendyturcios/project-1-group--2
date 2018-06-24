@@ -26,29 +26,18 @@
         <div class="modal-content suppMeModalContent">
             <span class="close">&times;</span>
             <!-- <p>Some text in the Modal..</p> -->
-
-
-            <form class="sm-col-12">
-                <label>Walmart Store Locater</label>
-                <label>Find Nearest Stores</label>
-                <input type="text" class="block col-12 mb1 field">
-                <label>Password</label>
-                <input type="password" class="block col-12 mb1 field">
-                <label>Select</label>
-                <select class="block col-12 mb1 field">
-                    <option>Option 1</option>
-                    <option>Option 2</option>
-                    <option>Option 3</option>
-                    <option>Option 4</option>
-                    <option>Option 5</option>
-                </select>
-                <label class="block col-12 mb2">
-                    <input type="checkbox" checked> Remember me
-                </label>
+            <form method="post" action="form-handler.html" class="sm-col-12" onsubmit="return checkFform(this);">
+                <label class="modalLabel">Walmart Store Locater</label>
+                <label class="modalLabel">Find Nearest Stores</label>
+                <label>By City</label>                
+                <input name="city" type="text" id="cityInputId" class="block col-12 mb1 field">
+                <label name="cityError"></label>                
+                <label>By Zip code</label>
+                <input name="zip" type="text" id="zipId" class="block col-12 mb1 field">
+                <label name="zipError"></label>
                 <!-- <button type="submit" class="btn btn-primary">Sign In</button> -->
-                <button type="reset" class="btn btn-primary black bg-gray">Cancel</button>
+                <input type="submit" id="findStoreId" class="btn btn-primary black bg-gray" value="Find Stores"</input>
             </form>
-
         </div>
 
     </div>
