@@ -27,7 +27,7 @@ $(document).ready(function() {
        {
            "q": {
                "question": "How often do you eat a balanced meal?",
-               "options": ["0", "1 meal/ day", "2meals/ day"],
+               "options": ["0", "1 meal/ day", "2 meals/ day"],
                "answer": "",
            }
        },
@@ -147,10 +147,11 @@ $(document).ready(function() {
         if (ans1 === ""){
             let p = $("<p>");
             let warningMsg = p.text("GIVE ME YOUR NAME!!!");
-            $("form").append(warningMsg);
+            $("#warning-msg").html(warningMsg);
         } else {
             $("#question").empty();
             $("#anwsers").empty();
+            $("#warning-msg").empty();
             grabQuestion();
         }
     });
