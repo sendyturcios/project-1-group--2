@@ -178,7 +178,7 @@ $(document).on("click", ".research", function() {
     console.log(category);
     console.log(webPage);
     sendCategoryToStorage(category);
-    //window.location.href = webPage;
+    window.location.href = webPage;
 })
 
 start();
