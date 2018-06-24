@@ -9,7 +9,7 @@ $(document).ready(function () {
     //----------------------------------------------------------------------------------------------------------
 
     function findWalmartStoresByCity(city, elemTag) {
-        let query = "http://api.walmartlabs.com/v1/stores?apiKey=" + apiKey + "&city=" + city + "&format=json";
+        let query = "https://api.walmartlabs.com/v1/stores?apiKey=" + apiKey + "&city=" + city + "&format=json";
         $.ajax({
             url: query,
             method: "GET",
@@ -24,7 +24,7 @@ $(document).ready(function () {
     //----------------------------------------------------------------------------------------------------------    
 
     function findWalmartStoresByZip(zip, elemTag) {
-        let query = "http://api.walmartlabs.com/v1/stores?apiKey=" + apiKey + "&zip=" + zip + "&format=json";
+        let query = "https://api.walmartlabs.com/v1/stores?apiKey=" + apiKey + "&zip=" + zip + "&format=json";
         $.ajax({
             url: query,
             method: "GET",
