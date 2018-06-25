@@ -35,61 +35,52 @@ function hideModal() {
 
 function popUpStoreModal() {
     modal.style.display = "block";
-    //errorModal.style.display = "block";
 }
 
 function showErrorModal() {
     errorModal.style.display = "block";
 }
 
-{/* <p>Only one field can be blank</p> */ }
-// <p>City has to alpha</p>
-// <p>Zip code must be 5 digits</p>
 function checkForm(form) {
     let isValid = true;
     let errorModal = $("#errorModalId");
     let zipDigitCount = 0;
     errorModal.empty();
-    if (form.city.value === "" && form.zip.value === "") {
+    if (form.city.value === "-" && form.zip.value === "-") {
         isValid = false;
         let msg1 = $("<span>");
-        msg1.text("Only one field can be blank");
+        msg1.text("Please fill out one of the fields");
         errorModal.append(msg1);
         showErrorModal();
         return false;
     }
-    if(form.city.value !== "" && form.zip.value === "") {
+    if (form.city.value !== "-" && form.zip.value !== "-") {
+        isValid = false;
+        let msg1 = $("<span>");
+        msg1.text("One field must be have - (hypen character)");
+        errorModal.append(msg1);
+        showErrorModal();
+        return false;
+    }
+    if (form.city.value !== "-" && form.zip.value === "-") {
         window.localStorage.setItem("city", form.city.value);
         window.localStorage.setItem("zip", form.zip.value);
     }
-    if(form.city.value === "" && form.zip.value !== "") {
+    if (form.city.value === "-" && form.zip.value !== "-") {
         window.localStorage.setItem("city", form.city.value);
         window.localStorage.setItem("zip", form.zip.value);
     }
     if (form.zip.value !== "") {
-        
-// let patt = new RegExp(form.zip.value);
-// let res = patt.test("^\d{5}$");
-// console.log(res);
-        // if (form.zip.value !== "[^\d{5}$]") {
-        //     let msg1 = $("<span>");
-        //     msg1.text("Zip code must be 5 digits");
-        //     errorModal.append(msg1);
-        //     showErrorModal();
-        //     return false;
-        // }
     }
-
-    //getWalmartStoresByCity(form.city.value);
-    //hideModal();
     if (isValid) {
         window.open("store.html");
         hideModal();
     }
     return false;
 }
-// $(document).on("click", "#findStoreId", function(event) {
-//     event.preventDefault();
-//     checkForm();
-//     hideModal();
-// })
+
+function toSelectOrNotToSelect(input) {
+    if (input.value === "-") {
+        input.select();
+    }
+}

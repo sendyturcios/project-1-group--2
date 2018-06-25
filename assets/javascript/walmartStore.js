@@ -1,6 +1,4 @@
-$(document).ready(function () {
-    let city = window.localStorage.getItem("city");
-    let zip = window.localStorage.getItem("zip");
+$(document).ready(function () {    
     let apiKey = "8nvceubtr5ha96hcrf8g96r8";
     let prodResponse = [];
     let trCounter = 0;
@@ -37,13 +35,18 @@ $(document).ready(function () {
 
     //----------------------------------------------------------------------------------------------------------
 
-    function listWalmartStoresByCity(city) {
-
-        console.log(container);
+    function listWalmartStoresByCity(city) {    
         container.empty();
         buildStoreHeader(container);
         findWalmartStoresByCity(city, container);
-        console.log("hi");
+    }
+
+    //----------------------------------------------------------------------------------------------------------
+
+    function listWalmartStoresByZip(zip) {
+        container.empty();
+        buildStoreHeader(container);
+        findWalmartStoresByCity(zip, container);
     }
 
     //----------------------------------------------------------------------------------------------------------
@@ -94,24 +97,6 @@ $(document).ready(function () {
         return true;
     }
 
-    // [
-    //     {
-    //     "no": 5959,
-    //     "name": "Houston Supercenter",
-    //     "country": "US",
-    //     "coordinates": [
-    //     -95.401322,
-    //     29.7728201
-    //     ],
-    //     "streetAddress": "111 Yale St",
-    //     "city": "Houston",
-    //     "stateProvCode": "TX",
-    //     "zip": "77007",
-    //     "phoneNumber": "713-860-0700",
-    //     "sundayOpen": true,
-    //     "timezone": "CST"
-    //     },
-
     function displayResponseStores(response, category) {
         for (let i = 0; i < response.length; i++) {
             let item = response[i];
@@ -145,7 +130,7 @@ $(document).ready(function () {
                 stateDivM.text(item.stateProvCode);
                 stateM.append(stateDivM);
                 zipDivM.addClass("categoryDiv")
-                zipDivM.text(item.name);
+                zipDivM.text(item.zip);
                 zipM.append(zipDivM);
                 phoneDivM.addClass("categoryDiv")
                 phoneDivM.text(item.phoneNumber);
@@ -158,6 +143,12 @@ $(document).ready(function () {
                     openSundaysDivM.text("No");
                 }
                 openSundaysM.append(openSundaysDivM);
+                if (trCounter % 2 === 0) {
+                    trM.addClass("trChildEven");
+                }
+                else {
+                    trM.addClass("trChildOdd");
+                }
                 trM.append(nameM).append(streetM).append(cityM).append(stateM).append(zipM).append(phoneM).append(openSundaysM);
 
                 table.append(trM);
@@ -167,10 +158,13 @@ $(document).ready(function () {
         return true;
     }
 
-    if (city !== "" && zip === "") {
+    let city = window.localStorage.getItem("city");
+    let zip = window.localStorage.getItem("zip");
+
+    if (city !== "-" && zip === "-") {
         listWalmartStoresByCity(city);
     }
-    if (city === "" && zip !== "") {
-        listWalmartStoresByCity(zip);
+    if (city === "-" && zip !== "-") {
+        listWalmartStoresByZip(zip);
     }
 });

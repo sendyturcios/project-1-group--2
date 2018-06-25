@@ -1,5 +1,37 @@
+// Initialize Firebase
+const config = {
+    apiKey: "AIzaSyDYpKXPd-2TB3hbTCxs1o_3WFPWFV2pYMU",
+    authDomain: "supplementme-207623.firebaseapp.com",
+    databaseURL: "https://supplementme-207623.firebaseio.com",
+    projectId: "supplementme-207623",
+    storageBucket: "",
+    messagingSenderId: "403853956534"
+};
 
-let surveyResults = [];
+firebase.initializeApp(config);
+
+let fdata = firebase.database();
+
+let surveyResults;
+let ref = fdata.ref('answers');
+ref.on('value', gotData, errData);
+function gotData(data) {
+    surveyResults = data.val();
+    start(); 
+}
+
+function errData(err) {
+    console.log("Error");
+    console.log(err);
+}
+
+function sendSurveyResultsToStorage(surveyResults) {
+    let entry = {
+        "answers": surveyResults
+    }
+    fdata.ref().set(entry);
+}
+
 let recKindOfProds = [];
 
 let suppChart = [
@@ -161,11 +193,8 @@ function getWalmartStoresByZip(zip) {
 }
 
 function start() {
-    surveyResults = getSurveyResultsFromStorage();
     calculateProducts();
     getWalmartProducts();
-    //getWalmartStoresByCity("Houston");
- //   getWalmartStoresByZip("77447");
 }
 
 $(document).on("click", ".storeButton", function() {
@@ -175,6 +204,4 @@ $(document).on("click", ".storeButton", function() {
 $(document).on("click", ".research", function() {
     window.open("SupplementMe.html");
 })
-
-start();
 
