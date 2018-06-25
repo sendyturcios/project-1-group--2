@@ -27,6 +27,11 @@ header {
   background-color: rgb(255, 238, 80, 0.8);
 }
 
+#steps {
+  text-align: center;
+
+}
+
 .white {
     color: black;
 }
@@ -102,8 +107,6 @@ div.clearfix.border {
 }
 
 
-
-
 /*   The following is styling for survey question page  */
 
 
@@ -143,13 +146,7 @@ div.clearfix.border {
     font-size: 16px;
   }
 
-  .col{
-     float: none;
-  }
 
-  .col-6 {
-    width: 100%;
-  }
 
   .mt4 {
      margin-top: 0;
