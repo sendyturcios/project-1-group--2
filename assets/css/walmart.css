@@ -21,20 +21,12 @@
 }
 
 
-
-
-
-
-
-
-
-
 * {
     box-sizing: border-box;
 }
 
 .categoryDiv {
-    width: 250px;
+    width: 200px;
     margin: 20px auto;
     text-align: center;
 }
@@ -50,18 +42,18 @@
 
 .trHeader {
     background-color: lightseagreen;
-    font-size: 40px;
+    font-size: 30px;
     color: white;
 }
 
 .trChildEven {
     background-color: lightcoral;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .trChildOdd {
     background-color: lightsteelblue;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .productDiv {

@@ -53,7 +53,15 @@ function checkForm(form) {
     if (form.city.value === "" && form.zip.value === "") {
         isValid = false;
         let msg1 = $("<span>");
-        msg1.text("Only one field can be blank");
+        msg1.text("Please fill out one of the fields");
+        errorModal.append(msg1);
+        showErrorModal();
+        return false;
+    }
+    if (form.city.value !== "" && form.zip.value !== "") {
+        isValid = false;
+        let msg1 = $("<span>");
+        msg1.text("One field must be blank");
         errorModal.append(msg1);
         showErrorModal();
         return false;

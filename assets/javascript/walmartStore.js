@@ -38,12 +38,9 @@ $(document).ready(function () {
     //----------------------------------------------------------------------------------------------------------
 
     function listWalmartStoresByCity(city) {
-
-        console.log(container);
         container.empty();
         buildStoreHeader(container);
         findWalmartStoresByCity(city, container);
-        console.log("hi");
     }
 
     //----------------------------------------------------------------------------------------------------------
@@ -94,24 +91,6 @@ $(document).ready(function () {
         return true;
     }
 
-    // [
-    //     {
-    //     "no": 5959,
-    //     "name": "Houston Supercenter",
-    //     "country": "US",
-    //     "coordinates": [
-    //     -95.401322,
-    //     29.7728201
-    //     ],
-    //     "streetAddress": "111 Yale St",
-    //     "city": "Houston",
-    //     "stateProvCode": "TX",
-    //     "zip": "77007",
-    //     "phoneNumber": "713-860-0700",
-    //     "sundayOpen": true,
-    //     "timezone": "CST"
-    //     },
-
     function displayResponseStores(response, category) {
         for (let i = 0; i < response.length; i++) {
             let item = response[i];
@@ -158,6 +137,12 @@ $(document).ready(function () {
                     openSundaysDivM.text("No");
                 }
                 openSundaysM.append(openSundaysDivM);
+                if (trCounter % 2 === 0) {
+                    trM.addClass("trChildEven");
+                }
+                else {
+                    trM.addClass("trChildOdd");
+                }
                 trM.append(nameM).append(streetM).append(cityM).append(stateM).append(zipM).append(phoneM).append(openSundaysM);
 
                 table.append(trM);
