@@ -53,7 +53,7 @@
                 <label class="modalLabel">Walmart Store Locater</label>
                 <label class="modalLabel">Find Nearest Stores</label>
                 <label>By City</label>
-                <input name="city" type="text" id="cityInputId" class="block col-12 mb1 field" placeholder="- for no city" required pattern="^[-a-zA-Z0-9]+$" value="-" onclick="toSelectOrNotToSelect(this)">
+                <input name="city" type="text" id="cityInputId" class="block col-12 mb1 field" placeholder="- for no city" required pattern="^[-a-zA-Z0-9 ]+$" value="-" onclick="toSelectOrNotToSelect(this)">
                 <label name="cityError"></label>
                 <label>By Zip code</label>
                 <input name="zip" type="text" id="zipId" class="block col-12 mb1 field" placeholder="- for no zipcode" required pattern="-|^\d{5}$" value="-" onclick="toSelectOrNotToSelect(this)">

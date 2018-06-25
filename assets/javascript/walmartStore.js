@@ -1,4 +1,4 @@
-$(document).ready(function () {    
+$(document).ready(function () {
     let apiKey = "8nvceubtr5ha96hcrf8g96r8";
     let prodResponse = [];
     let trCounter = 0;
@@ -8,6 +8,7 @@ $(document).ready(function () {
 
     function findWalmartStoresByCity(city, elemTag) {
         let query = "https://api.walmartlabs.com/v1/stores?apiKey=" + apiKey + "&city=" + city + "&format=json";
+        query = encodeURI(query);
         $.ajax({
             url: query,
             method: "GET",
@@ -22,20 +23,21 @@ $(document).ready(function () {
     //----------------------------------------------------------------------------------------------------------    
 
     function findWalmartStoresByZip(zip, elemTag) {
-        let query = "https://api.walmartlabs.com/v1/stores?apiKey=" + apiKey + "&zip=" + zip + "&format=json";
+        let query = "https://api.walmartlabs.com/v1/stores?apiKey=" + apiKey + "&zip=" + zip + "&format=json";       
+            query = encodeURI(query);       
         $.ajax({
             url: query,
             method: "GET",
             dataType: 'jsonp'
         }).then(function (response) {
-            displayResponseStores(response, elemTag);
+           setTimeout(displayResponseStores(response, elemTag), 1000);
         }).catch(function (err) {
         });
     }
 
     //----------------------------------------------------------------------------------------------------------
 
-    function listWalmartStoresByCity(city) {    
+    function listWalmartStoresByCity(city) {
         container.empty();
         buildStoreHeader(container);
         findWalmartStoresByCity(city, container);
@@ -46,7 +48,7 @@ $(document).ready(function () {
     function listWalmartStoresByZip(zip) {
         container.empty();
         buildStoreHeader(container);
-        findWalmartStoresByCity(zip, container);
+        findWalmartStoresByZip(zip, container);
     }
 
     //----------------------------------------------------------------------------------------------------------
@@ -98,6 +100,15 @@ $(document).ready(function () {
     }
 
     function displayResponseStores(response, category) {
+        if(response.length === 0) {
+            let trM = $("<tr>");
+            let noDataM = $("<td>");
+            let noDataDivM = $("<div>");
+            noDataDivM.text("No data was found from Walmart server");
+            trM.addClass("trChildEven");
+            trm.append(noDataM);
+            table.append(trM);
+        }
         for (let i = 0; i < response.length; i++) {
             let item = response[i];
             let trM = $("<tr>");

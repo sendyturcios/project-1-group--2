@@ -27,6 +27,10 @@ function findWalmartProducts(categories, elemTag) {
     let category = categories[0];
     categories.shift();
     let query = "https://api.walmartlabs.com/v1/search?apiKey=" + apiKey + "&query=" + category + "&format=json";
+    try {
+        query = encodeURI(query);
+    }
+    catch{}    
     $.ajax({
         url: query,
         method: "GET",
@@ -38,7 +42,7 @@ function findWalmartProducts(categories, elemTag) {
         prodResponse.push(tempArray);
         let finished = getData(response, category);
         if (categories.length > 0) {
-            findWalmartProducts(categories, elemTag);
+           setTimeout(findWalmartProducts(categories, elemTag), 1000);
         }
     }).catch(function (err) {
         if (categories.length > 0) {
@@ -82,6 +86,15 @@ function buildHeader(elemTag) {
 }
 
 function getData(response, category) {
+    if(response.length === 0) {
+        let trM = $("<tr>");
+        let noDataM = $("<td>");
+        let noDataDivM = $("<div>");
+        noDataDivM.text("No data was found from Walmart server");
+        trM.addClass("trChildEven");
+        trm.append(noDataM);
+        table.append(trM);
+    }
     for (let i = 0; i < response.items.length; i++) {       
         let item = response.items[i];
         let trM = $("<tr>");
