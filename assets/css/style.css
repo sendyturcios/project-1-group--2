@@ -7,11 +7,21 @@ header {
   background-size: cover;
 }
 
+
 #transparent-background {
   height: auto;
   width: 100%;
   background-color: rgb(255, 255, 255, .6);
 }
+
+
+/* banner text color */
+.white {
+    color: black;
+}
+
+
+/*button styling */
 
 .btn-primary{
   color: #002d68;
@@ -31,6 +41,7 @@ header {
   text-align: center;
 
 }
+
 
 .white {
     color: black;
@@ -54,22 +65,25 @@ div.clearfix.border {
   border: none;
 }
 
+#steps {
+  text-align: center;
+
+}
+
+
+
 /* google font used for middle section - instructions for user */
-.how__title {
-  font-family: 'Marvel', sans-serif;
-} 
 
-.how__subtitle {
+#steps {
+  text-align: center;
   font-family: 'Marvel', sans-serif;
+  font-size: 20px;
+  padding: 80px;
 }
 
 
-/* this was for content strip - hidden for now
-.content-strip {
-  padding: 40px;
-}
 
-*/
+
 
 
 /* social media icons*/
@@ -107,6 +121,13 @@ div.clearfix.border {
 }
 
 
+ /* copyright text centered */
+.h6 {
+  text-align: center;
+}
+
+
+
 /*   The following is styling for survey question page  */
 
 
@@ -115,6 +136,34 @@ div.clearfix.border {
  font-family: 'Marvel', sans-serif;
  font-size: 50px;
 }
+
+#submit{
+  background-color: #07836E;
+  font-size: 12px;
+  padding: 10px 24px;
+  border-radius: 12px;
+  color: white;
+ 
+
+}
+
+#warning-msg{
+  color: red;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  text-align: center;
+  font-size: 10px;
+}
+
+
+
 
 
 
