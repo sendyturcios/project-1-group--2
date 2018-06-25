@@ -1,6 +1,4 @@
-$(document).ready(function () {
-    let city = window.localStorage.getItem("city");
-    let zip = window.localStorage.getItem("zip");
+$(document).ready(function () {    
     let apiKey = "8nvceubtr5ha96hcrf8g96r8";
     let prodResponse = [];
     let trCounter = 0;
@@ -37,10 +35,18 @@ $(document).ready(function () {
 
     //----------------------------------------------------------------------------------------------------------
 
-    function listWalmartStoresByCity(city) {
+    function listWalmartStoresByCity(city) {    
         container.empty();
         buildStoreHeader(container);
         findWalmartStoresByCity(city, container);
+    }
+
+    //----------------------------------------------------------------------------------------------------------
+
+    function listWalmartStoresByZip(zip) {
+        container.empty();
+        buildStoreHeader(container);
+        findWalmartStoresByCity(zip, container);
     }
 
     //----------------------------------------------------------------------------------------------------------
@@ -124,7 +130,7 @@ $(document).ready(function () {
                 stateDivM.text(item.stateProvCode);
                 stateM.append(stateDivM);
                 zipDivM.addClass("categoryDiv")
-                zipDivM.text(item.name);
+                zipDivM.text(item.zip);
                 zipM.append(zipDivM);
                 phoneDivM.addClass("categoryDiv")
                 phoneDivM.text(item.phoneNumber);
@@ -152,10 +158,13 @@ $(document).ready(function () {
         return true;
     }
 
-    if (city !== "" && zip === "") {
+    let city = window.localStorage.getItem("city");
+    let zip = window.localStorage.getItem("zip");
+
+    if (city !== "-" && zip === "-") {
         listWalmartStoresByCity(city);
     }
-    if (city === "" && zip !== "") {
-        listWalmartStoresByCity(zip);
+    if (city === "-" && zip !== "-") {
+        listWalmartStoresByZip(zip);
     }
 });
