@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>SupplementMeSurvey</title>
+  <title>SupplementMe Survey</title>
 
 
   <!-- Basscss-->
@@ -14,10 +14,7 @@
 
 
   <!-- style.css -->
-  <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
-
-   <!-- link to google fonts-->
-   <link href="https://fonts.googleapis.com/css?family=Marvel" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/surveycss.css" type="text/css">
 
 
   <!-- Jquery Link???-->
@@ -25,45 +22,28 @@
     crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
 
-
-
-
 </head>
 
 <body>
 
 
-  
-
-
   <!-- navbar-->
-  <div class="clearfix mb2 white bg-white">
-    <div class="left">
-      <a href="#!" class="btn py2 m0">will use logo as link to homepage here </a>
-      
-    </div>
-  </div>
-
+<nav class="mb4">
+      <div class="clearfix mb2 white bg-white">
+        <div class="left">
+          <a href="index.html" class="py2 m0">will use logo as link to homepage here </a>
+          
+        </div>
+      </div>
+</nav>
   <!-- code to use image link to home page 
   <a href="default.asp">
   <img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
-</a>
-  
-  -->
-  
-
-  <br> 
-  <br> 
-  <br> 
-  <br> 
-  <br>
-  <br>
-  
+</a>-->
 
   <!-- survey div container-->
 
- 
-  <section class="survey-content">
+<section id="steps" class="container px2 py3 survey-content">
         <div id="question">
 
         </div>
@@ -75,24 +55,56 @@
         <div id="warning-msg">
 
         </div>
-  </section>
+</section>
 
-  <div class="footer">
-      <p>&copy; 2018 SupplementMe, LLC. All Rights Reserved</p>
-    </div>
+  <!-- footer -->
+  <footer class="white bg-olive">
+      <div class="px2 py3 container">
+          <div class="clearfix center">
+              <div class="col col-6">
+                  <ul class="list-reset">
+                      <li>
+                          <h3 class="h3 m0">
+                             Contact
+                          </h3>
+                      </li>
+                      <li>
+                          <a href="#" class="h5 block">supplementme@something.com </a>
+                      </li>
+                      <li>
+                          <a href="#" class="h5 block">(555) 555-555 </a>
+                      </li>
+                      <li>
+                          <a href="#" class="h5 block"> </a>
+                      </li>
+                  </ul>
+              </div>
+        
+              <div class="col col-6">
+                  <ul class="list-reset">
+                      <li>
+                          <h3 class="h3 m0">
+                              Follow us!
+                          </h3>
+                      </li>
+                      <li>
+                              <a href="#" class="fa fa-facebook"></a>
 
+                              <a href="#" class="fa fa-twitter"></a>
+
+                              <a href="#" class="fa fa-instagram"></a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <p class="h6 mb0">&copy; 2018 SupplementMe, LLC. All Rights Reserved</p>
+      </div>
+  </footer>
  
-
-
-
-
-
   <script src="assets/javascript/survey.js"></script>
 
   <script src="assets/javascript/jsonProcessor.js"></script>
 
-
-  
 
 
 </body>
