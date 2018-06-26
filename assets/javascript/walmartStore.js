@@ -16,7 +16,7 @@ $(document).ready(function () {
         }).then(function (response) {
             displayResponseStores(response, elemTag);
         }).catch(function (err) {
-            console.log(err);
+            let error = nothingFound(category)
         });
     }
 
@@ -32,6 +32,7 @@ $(document).ready(function () {
         }).then(function (response) {
            setTimeout(displayResponseStores(response, elemTag), 1000);
         }).catch(function (err) {
+            let error = nothingFound(category);
         });
     }
 
@@ -105,8 +106,9 @@ $(document).ready(function () {
             let noDataM = $("<td>");
             let noDataDivM = $("<div>");
             noDataDivM.text("No data was found from Walmart server");
+            noDataM.append(noDataDivM);
             trM.addClass("trChildEven");
-            trm.append(noDataM);
+            trM.append(noDataM);
             table.append(trM);
         }
         for (let i = 0; i < response.length; i++) {
@@ -166,6 +168,18 @@ $(document).ready(function () {
             }
             catch (err) { console.log(err); }
         }
+        return true;
+    }
+
+    function nothingFound(category) {
+        let trM = $("<tr>");
+        let noDataM = $("<td>");
+        let noDataDivM = $("<div>");
+        noDataDivM.text("Nothing found for " + category);
+        noDataM.append(noDataDivM);
+        trM.addClass("trChildEven");
+        trM.append(noDataM);
+        table.append(trM);
         return true;
     }
 

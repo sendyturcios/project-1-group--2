@@ -16,7 +16,7 @@ let table = $("<table>");
 
 //----------------------------------------------------------------------------------------------------------
 
-function walmartBegin(container) {    
+function walmartBegin(container) {
     buildHeader(container);
     findWalmartProducts(recKindOfProds, container);
 }
@@ -30,7 +30,7 @@ function findWalmartProducts(categories, elemTag) {
     try {
         query = encodeURI(query);
     }
-    catch{}    
+    catch{ }
     $.ajax({
         url: query,
         method: "GET",
@@ -42,10 +42,11 @@ function findWalmartProducts(categories, elemTag) {
         prodResponse.push(tempArray);
         let finished = getData(response, category);
         if (categories.length > 0) {
-           setTimeout(findWalmartProducts(categories, elemTag), 1000);
+            setTimeout(findWalmartProducts(categories, elemTag), 1000);
         }
     }).catch(function (err) {
         if (categories.length > 0) {
+            let error = noFoundForCat(category);
             findWalmartProducts(categories, elemTag);
         }
     });
@@ -54,8 +55,8 @@ function findWalmartProducts(categories, elemTag) {
 //----------------------------------------------------------------------------------------------------------
 
 
-function buildHeader(elemTag) {  
-    table = $("<table>");  
+function buildHeader(elemTag) {
+    table = $("<table>");
     trCounter = 0;
     let tr = $("<tr>");
     let category = $("<td>");
@@ -86,16 +87,17 @@ function buildHeader(elemTag) {
 }
 
 function getData(response, category) {
-    if(response.length === 0) {
+    if (response.length === 0) {
         let trM = $("<tr>");
         let noDataM = $("<td>");
         let noDataDivM = $("<div>");
         noDataDivM.text("No data was found from Walmart server");
+        noDataM.append(noDataDivM);
         trM.addClass("trChildEven");
-        trm.append(noDataM);
+        trM.append(noDataM);
         table.append(trM);
     }
-    for (let i = 0; i < response.items.length; i++) {       
+    for (let i = 0; i < response.items.length; i++) {
         let item = response.items[i];
         let trM = $("<tr>");
         try {
@@ -131,7 +133,7 @@ function getData(response, category) {
             addToCartButM.text("Add To Cart");
             findStoresButM.addClass("storeButton");
             findStoresButM.text("Find Stores");
-            researchButM.addClass("optionButton");            
+            researchButM.addClass("optionButton");
             researchButM.text("Research " + category);
             researchButM.attr("href", "#");
             researchDivM.attr("webpage", "SupplementMe.html").attr("category", category);
@@ -154,5 +156,16 @@ function getData(response, category) {
     return true;
 }
 
+function noFoundForCat(category) {
+    let trM = $("<tr>");
+    let noDataM = $("<td>");
+    let noDataDivM = $("<div>");
+    noDataDivM.text("Nothing found for " + category);
+    noDataM.append(noDataDivM);
+    trM.addClass("trChildEven");
+    trM.append(noDataM);
+    table.append(trM);
+    return true;
+}
 
 
