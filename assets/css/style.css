@@ -1,3 +1,8 @@
+
+nav {
+  height: 20px;
+}
+
 header {
    height: 400px;
 }
@@ -78,7 +83,15 @@ div.clearfix.border {
   text-align: center;
   font-family: 'Marvel', sans-serif;
   font-size: 20px;
-  padding: 80px;
+  padding: 120px;
+}
+
+
+.title {
+  font-family: 'Marvel', sans-serif;
+  font-size: 38px;
+  font-weight: bolder;
+  
 }
 
 
@@ -107,6 +120,7 @@ div.clearfix.border {
 .fa-facebook {
   background: #3B5998;
   color: white;
+ 
   
 }
 
@@ -128,8 +142,14 @@ div.clearfix.border {
 
 
 
+
+
 /*   The following is styling for survey question page  */
 
+
+a.link {
+  width: 100;
+}
 
 .survey-content{
  text-align: center;
@@ -147,8 +167,8 @@ div.clearfix.border {
 
 }
 
-#warning-msg{
-  color: red;
+.bg-olive {
+  background-color:#39a1c7;
 }
 
 .footer {
@@ -160,8 +180,18 @@ div.clearfix.border {
   color: black;
   text-align: center;
   font-size: 10px;
+  font-family: 'Marvel', sans-serif;
 }
 
+.m0{
+  font-family: 'Marvel', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.block{
+  font-family: 'Marvel', sans-serif;
+}
 
 
 
