@@ -167,7 +167,9 @@ a.link {
 
 }
 
-
+.bg-olive {
+  background-color:#39a1c7;
+}
 
 .footer {
   position: fixed;
