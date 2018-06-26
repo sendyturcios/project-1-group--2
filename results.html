@@ -5,18 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://unpkg.com/basscss@7.1.1/css/basscss.min.css" <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Basscss-->
+    <link href="https://unpkg.com/basscss@7.1.1/css/basscss.min.css" rel="stylesheet">
+
+    <!--style sheets-->
     <link rel="stylesheet" href="assets/css/walmartStoreModal.css">
     <link rel="stylesheet" href="assets/css/walmart.css">
+<<<<<<< HEAD
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script defer type="text/javascript" src="assets/javascript/walmartStoreModal.js"></script>
-    <script type="text/javascript" src="assets/javascript/walmart.js"></script>
-    <script type="text/javascript" src="assets/javascript/processor.js"></script>
+=======
 
     <!-- link to google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Marvel" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    
+
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+
+>>>>>>> master
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script defer type="text/javascript" src="assets/javascript/walmartStoreModal.js"></script>
+
+
+    <!-- social media icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 
     <title>SupplementMeResults</title>
 </head>
@@ -24,23 +41,27 @@
 <body>
 
     <!-- navbar-->
-    <nav class="clearfix white bg-white">
-        <div class="sm-col">
-            <a href="index.html" class="btn py2">Home</a>
+    <nav class="mb4">
+        <div class="clearfix mb2 white bg-white">
+            <div class="left">
+
+
+                <a href="https://sendyturcios.github.io/project-1-group-2/">
+                    <img src="./assets/css/images/SupplementMe-01.png">
+                </a>
+
+
+            </div>
         </div>
     </nav>
-
-    <!-- code to use image link to home page 
-  <a href="default.asp">
-  <img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
-</a>
-  
-  -->
 
     <!-- Results banner with text -->
     <header class="center px3 py4 white bg-white bg-cover bg-center">
         <h1 class="h1 h0-responsive caps mt4 mb0 regular"> Results</h1>
+        <br>
+        <br>
         <p class="h3">Based on your answers, these are your recommended supplements</p>
+        <br>
     </header>
 
     <!-- The Modal -->
@@ -54,10 +75,16 @@
                 <label class="modalLabel">Walmart Store Locater</label>
                 <label class="modalLabel">Find Nearest Stores</label>
                 <label>By City</label>
+<<<<<<< HEAD
                 <input name="city" type="text" id="cityInputId" class="block col-12 mb1 field" placeholder="- for no city" required pattern="^[-a-zA-Z0-9 ]+$" value="-" onclick="toSelectOrNotToSelect(this)">
+=======
+                <input name="city" type="text" id="cityInputId" class="block col-12 mb1 field" placeholder="- for no city" required pattern="^[-a-zA-Z0-9]+$"
+                    value="-" onclick="toSelectOrNotToSelect(this)">
+>>>>>>> master
                 <label name="cityError"></label>
                 <label>By Zip code</label>
-                <input name="zip" type="text" id="zipId" class="block col-12 mb1 field" placeholder="- for no zipcode" required pattern="-|^\d{5}$" value="-" onclick="toSelectOrNotToSelect(this)">
+                <input name="zip" type="text" id="zipId" class="block col-12 mb1 field" placeholder="- for no zipcode" required pattern="-|^\d{5}$"
+                    value="-" onclick="toSelectOrNotToSelect(this)">
                 <label name="zipError"></label>
                 <br>
                 <!-- <button type="submit" class="btn btn-primary">Sign In</button> -->
@@ -71,6 +98,9 @@
 
         </div>
     </div>
+
+    
+
     <div class="conatiner">
         <div class="row">
             <div class="col-12">
@@ -82,6 +112,53 @@
     </div>
 
 
+<!-- footer -->
+<footer class="white bg-olive">
+        <div class="px2 py3 container">
+            <div class="clearfix center">
+                <div class="col col-6">
+                    <ul class="list-reset">
+                        <li>
+                            <h3 class="h3 m0">
+                               Contact
+                            </h3>
+                        </li>
+                        <li>
+                            <a href="#" class="h5 btn block">supplementme@something.com </a>
+                        </li>
+                        <li>
+                            <a href="#" class="h5 btn block">(555) 555-555 </a>
+                        </li>
+                        <li>
+                            <a href="#" class="h5 btn block"> </a>
+                        </li>
+                    </ul>
+                </div>
+          
+                <div class="col col-6">
+                    <ul class="list-reset">
+                        <li>
+                            <h3 class="h3 m0">
+                                Follow us!
+                            </h3>
+                        </li>
+                        <li>
+                                <a href="#" class="fa fa-facebook"></a>
+                                  
+                                <a href="#" class="fa fa-twitter"></a>
+  
+                                <a href="#" class="fa fa-instagram"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p class="h6 mb0">&copy; 2018 SupplementMe, LLC. All Rights Reserved</p>
+        </div>
+    </footer>
+
+
+    <script type="text/javascript" src="assets/javascript/walmart.js"></script>
+    <script type="text/javascript" src="assets/javascript/processor.js"></script>
 
 </body>
 

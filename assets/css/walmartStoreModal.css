@@ -39,6 +39,8 @@
 
 .suppMeModalContent {
     max-width: 500px;
+    border-radius: 12px;
+
 }
 
 .modalLabel {
@@ -55,3 +57,16 @@
     width: 80%;
 }
 
+.storeButton {
+  
+        padding: 20px 30px;
+        margin: 0 10px 0 10px;
+        border-radius: 12px;
+        background-color:#252727;
+        color: #fdfcfc;
+        font-size: 20px;
+    }
+    
+    .storeButton:hover, .storeButton:active {
+        background-color:#3c3e3f;
+    }

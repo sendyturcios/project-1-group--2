@@ -147,7 +147,7 @@ $(document).ready(function () {
             "type": "text",
             "id": "name"
         });
-        let button = $("<button>").text("Go").attr({
+        let button = $("<button>").text("Get Started").attr({
             "value": "Go",
             "id": "submit"
         });
@@ -165,7 +165,7 @@ $(document).ready(function () {
 
         if (ans1 === "") {
             let p = $("<p>");
-            let warningMsg = p.text("GIVE ME YOUR NAME!!!");
+            let warningMsg = p.text("Please input your name.").attr("id", "p-warn");
             $("#warning-msg").html(warningMsg);
         } else {
             $("#question").empty();
