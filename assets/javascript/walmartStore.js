@@ -1,6 +1,5 @@
-$(document).ready(function () {    
+$(document).ready(function () {
     let apiKey = "8nvceubtr5ha96hcrf8g96r8";
-    let prodResponse = [];
     let trCounter = 0;
     let container = $(".productContainer");
     let table = $("<table>");
@@ -8,6 +7,7 @@ $(document).ready(function () {
 
     function findWalmartStoresByCity(city, elemTag) {
         let query = "https://api.walmartlabs.com/v1/stores?apiKey=" + apiKey + "&city=" + city + "&format=json";
+        query = encodeURI(query);
         $.ajax({
             url: query,
             method: "GET",
@@ -15,27 +15,29 @@ $(document).ready(function () {
         }).then(function (response) {
             displayResponseStores(response, elemTag);
         }).catch(function (err) {
-            console.log(err);
+            let error = nothingFound(category)
         });
     }
 
     //----------------------------------------------------------------------------------------------------------    
 
     function findWalmartStoresByZip(zip, elemTag) {
-        let query = "https://api.walmartlabs.com/v1/stores?apiKey=" + apiKey + "&zip=" + zip + "&format=json";
+        let query = "https://api.walmartlabs.com/v1/stores?apiKey=" + apiKey + "&zip=" + zip + "&format=json";       
+            query = encodeURI(query);       
         $.ajax({
             url: query,
             method: "GET",
             dataType: 'jsonp'
         }).then(function (response) {
-            displayResponseStores(response, elemTag);
+           displayResponseStores(response, elemTag);
         }).catch(function (err) {
+            let error = nothingFound(category);
         });
     }
 
     //----------------------------------------------------------------------------------------------------------
 
-    function listWalmartStoresByCity(city) {    
+    function listWalmartStoresByCity(city) {
         container.empty();
         buildStoreHeader(container);
         findWalmartStoresByCity(city, container);
@@ -46,7 +48,7 @@ $(document).ready(function () {
     function listWalmartStoresByZip(zip) {
         container.empty();
         buildStoreHeader(container);
-        findWalmartStoresByCity(zip, container);
+        findWalmartStoresByZip(zip, container);
     }
 
     //----------------------------------------------------------------------------------------------------------
@@ -98,6 +100,16 @@ $(document).ready(function () {
     }
 
     function displayResponseStores(response, category) {
+        if(response.length === 0) {
+            let trM = $("<tr>");
+            let noDataM = $("<td>");
+            let noDataDivM = $("<div>");
+            noDataDivM.text("No data was found from Walmart server");
+            noDataM.append(noDataDivM);
+            trM.addClass("trChildEven");
+            trM.append(noDataM);
+            table.append(trM);
+        }
         for (let i = 0; i < response.length; i++) {
             let item = response[i];
             let trM = $("<tr>");
@@ -117,25 +129,25 @@ $(document).ready(function () {
                 let phoneDivM = $("<div>");
                 let openSundaysM = $("<td>");
                 let openSundaysDivM = $("<div>");
-                nameDivM.addClass("categoryDiv")
+                nameDivM.addClass("storeDiv")
                 nameDivM.text(item.name);
                 nameM.append(nameDivM);
-                streetDivM.addClass("categoryDiv")
+                streetDivM.addClass("storeDiv")
                 streetDivM.text(item.streetAddress);
                 streetM.append(streetDivM);
-                cityDivM.addClass("categoryDiv")
+                cityDivM.addClass("storeDiv")
                 cityDivM.text(item.city);
                 cityM.append(cityDivM);
-                stateDivM.addClass("categoryDiv")
+                stateDivM.addClass("storeDiv")
                 stateDivM.text(item.stateProvCode);
                 stateM.append(stateDivM);
-                zipDivM.addClass("categoryDiv")
+                zipDivM.addClass("storeDiv")
                 zipDivM.text(item.zip);
                 zipM.append(zipDivM);
-                phoneDivM.addClass("categoryDiv")
+                phoneDivM.addClass("storeDiv")
                 phoneDivM.text(item.phoneNumber);
                 phoneM.append(phoneDivM);
-                openSundaysDivM.addClass("categoryDiv")
+                openSundaysDivM.addClass("storeDiv")
                 if (item.sundayOpen) {
                     openSundaysDivM.text("Yes");
                 }
@@ -155,6 +167,18 @@ $(document).ready(function () {
             }
             catch (err) { console.log(err); }
         }
+        return true;
+    }
+
+    function nothingFound(category) {
+        let trM = $("<tr>");
+        let noDataM = $("<td>");
+        let noDataDivM = $("<div>");
+        noDataDivM.text("Nothing found for " + category);
+        noDataM.append(noDataDivM);
+        trM.addClass("trChildEven");
+        trM.append(noDataM);
+        table.append(trM);
         return true;
     }
 

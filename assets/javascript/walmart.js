@@ -1,6 +1,8 @@
 // apiKey:  8nvceubtr5ha96hcrf8g96r8
 // http://api.walmartlabs.com/v1/items?
 
+//http://api.walmartlabs.com/v1/search?apiKey=8nvceubtr5ha96hcrf8g96r8&query=iodine&query=laxative
+
 // http://api.walmartlabs.com/v1/items?apiKey=8nvceubtr5ha96hcrf8g96r8
 // http://api.walmartlabs.com/v1/search?apiKey=8nvceubtr5ha96hcrf8g96r8
 // http://api.walmartlabs.com/v1/stores?apiKey={apiKey}&zip=77063&format=json
@@ -16,7 +18,7 @@ let table = $("<table>");
 
 //----------------------------------------------------------------------------------------------------------
 
-function walmartBegin(container) {    
+function walmartBegin(container) {
     buildHeader(container);
     findWalmartProducts(recKindOfProds, container);
 }
@@ -24,34 +26,38 @@ function walmartBegin(container) {
 //----------------------------------------------------------------------------------------------------------
 
 function findWalmartProducts(categories, elemTag) {
-    let category = categories[0];
-    categories.shift();
-    let query = "https://api.walmartlabs.com/v1/search?apiKey=" + apiKey + "&query=" + category + "&format=json";
-    $.ajax({
-        url: query,
-        method: "GET",
-        dataType: 'jsonp'
-    }).then(function (response) {
-        let tempArray = [];
-        tempArray.push(category);
-        tempArray.push(response);
-        prodResponse.push(tempArray);
-        let finished = getData(response, category);
-        if (categories.length > 0) {
-            findWalmartProducts(categories, elemTag);
+    for (let i = 0; i < 5; i++) {
+        let category = categories[i];
+        let query = "https://api.walmartlabs.com/v1/search?apiKey=" + apiKey + "&query=" + category + "&numItems=5" + "&format=json";
+        try {
+            query = encodeURI(query);
         }
-    }).catch(function (err) {
-        if (categories.length > 0) {
-            findWalmartProducts(categories, elemTag);
+        catch{ }
+        $.ajax({
+            url: query,
+            method: "GET",
+            dataType: 'jsonp'
+        }).then(function (response) {
+            let tempArray = [];
+            tempArray.push(category);
+            tempArray.push(response);
+            prodResponse.push(tempArray);
+            getData(response, category);
+        }).catch(function (err) {           
+            noFoundForCat(category);
+            console.log(err.errors.error.code);
+        });
+        if(i === categories.length - 1){
+            break;
         }
-    });
+    }
 }
 
 //----------------------------------------------------------------------------------------------------------
 
 
-function buildHeader(elemTag) {  
-    table = $("<table>");  
+function buildHeader(elemTag) {
+    table = $("<table>");
     trCounter = 0;
     let tr = $("<tr>");
     let category = $("<td>");
@@ -82,7 +88,17 @@ function buildHeader(elemTag) {
 }
 
 function getData(response, category) {
-    for (let i = 0; i < response.items.length; i++) {       
+    if (response.length === 0) {
+        let trM = $("<tr>");
+        let noDataM = $("<td>");
+        let noDataDivM = $("<div>");
+        noDataDivM.text("No data was found from Walmart server");
+        noDataM.append(noDataDivM);
+        trM.addClass("trChildEven");
+        trM.append(noDataM);
+        table.append(trM);
+    }
+    for (let i = 0; i < response.items.length; i++) {
         let item = response.items[i];
         let trM = $("<tr>");
         try {
@@ -118,7 +134,7 @@ function getData(response, category) {
             addToCartButM.text("Add To Cart");
             findStoresButM.addClass("storeButton");
             findStoresButM.text("Find Stores");
-            researchButM.addClass("optionButton");            
+            researchButM.addClass("optionButton");
             researchButM.text("Research " + category);
             researchButM.attr("href", "#");
             researchDivM.attr("webpage", "SupplementMe.html").attr("category", category);
@@ -141,5 +157,16 @@ function getData(response, category) {
     return true;
 }
 
+function noFoundForCat(category) {
+    let trM = $("<tr>");
+    let noDataM = $("<td>");
+    let noDataDivM = $("<div>");
+    noDataDivM.text("Nothing found for " + category);
+    noDataM.append(noDataDivM);
+    trM.addClass("trChildEven");
+    trM.append(noDataM);
+    table.append(trM);
+    return true;
+}
 
 
