@@ -202,6 +202,8 @@ $(document).on("click", ".storeButton", function() {
 })
 
 $(document).on("click", ".research", function() {
+    console.log($(this).attr("category"));
+    //window.localStorage.setItem("category");
     window.open("SupplementMe.html");
 })
 
