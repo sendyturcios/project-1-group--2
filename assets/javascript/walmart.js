@@ -45,7 +45,6 @@ function findWalmartProducts(categories, elemTag) {
             getData(response, category);
         }).catch(function (err) {
             noFoundForCat(category);
-            console.log(err.errors.error.code);
         });
         if (i === categories.length - 1) {
             break;
