@@ -1,6 +1,13 @@
 
+/*   The following is styling for survey question page  */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700');
+
+body {
+   font-family: 'Noto Sans', sans-serif;
+}
+
 nav {
-  height: 20px;
+   height: 20px;
 }
 
 header {
@@ -8,109 +15,78 @@ header {
 }
 
 #banner {
-  background-image: url(images/clouds-fashion-free-103123.jpg);
-  background-size: cover;
+   background-image: url(images/clouds-fashion-free-103123.jpg);
+   background-size: cover;
 }
-
 
 #transparent-background {
-  height: auto;
-  width: 100%;
-  background-color: rgb(255, 255, 255, .6);
+   height: auto;
+   width: 100%;
+   background-color: rgb(255, 255, 255, .6);
 }
-
 
 /* banner text color */
 .white {
     color: black;
 }
 
-
 /*button styling */
 
 .btn-primary{
-  color: #002d68;
-  background-color: rgba(255, 238, 80, 0.9);
-  font-size: 20px;
-  padding: 14px 60px;
-  border-radius: 12px;
-  margin-top: 30px;
+    color: #002d68;
+    background-color: rgba(255, 238, 80, 0.9);
+    font-size: 20px;
+    padding: 14px 60px;
+    border-radius: 12px;
+    margin-top: 30px;
 }
 
 .btn-primary:hover{
-  color: #002d68;
-  background-color: rgb(255, 238, 80, 0.8);
-}
-
-#steps {
-  text-align: center;
-
-}
-
-
-.white {
-    color: black;
+    color: #002d68;
+    background-color: rgb(255, 238, 80, 0.8);
 }
 
 .h6 {
-  text-align: center;
+    text-align: center;
 }
 
 .border {
-  font-size: 50px;
-  font-family: 'Marvel', sans-serif;
-  font-weight: bold;
+    font-size: 50px;
+    font-weight: bold;
 }
 
 /* button css */
 
 div.clearfix.border {
-  text-align: center;
-  margin: 20px 0 20px 0;
-  border: none;
+    text-align: center;
+    margin: 20px 0 20px 0;
+    border: none;
 }
-
-#steps {
-  text-align: center;
-
-}
-
-
 
 /* google font used for middle section - instructions for user */
 
 #steps {
-  text-align: center;
-  font-family: 'Marvel', sans-serif;
-  font-size: 20px;
-  padding: 120px;
+    text-align: center;
+    font-size: 16px;
+    padding: 60px 120px 60px 120px;
 }
-
 
 .title {
-  font-family: 'Marvel', sans-serif;
-  font-size: 38px;
-  font-weight: bolder;
-  
+    font-size: 30px;  
+    font-family: 'Noto Sans', sans-serif;
+
 }
-
-
-
-
-
 
 /* social media icons*/
 
-
 .fa {
-  padding: 5px;
-  font-size: 30px;
-  width: 20px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-  border-radius: 50%;
-  
+    padding: 5px;
+    font-size: 30px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%; 
 }
 
 .fa:hover {
@@ -118,84 +94,58 @@ div.clearfix.border {
 }
 
 .fa-facebook {
-  background: #3B5998;
-  color: white;
- 
-  
+    background: #3B5998;
+    color: white; 
 }
 
 .fa-twitter {
-  background: #55ACEE;
-  color: white;
+    background: #55ACEE;
+    color: white;
 }
 
 .fa-instagram {
-  background: #125688;
-  color: white;
+    background: #125688;
+    color: white;
 }
 
 
  /* copyright text centered */
-.h6 {
-  text-align: center;
+
+.h5{
+    color: #fff;
+    font-family: 'Noto Sans', sans-serif;
 }
 
-
-
-
-
-/*   The following is styling for survey question page  */
-
-
-a.link {
-  width: 100;
-}
-
-.survey-content{
- text-align: center;
- font-family: 'Marvel', sans-serif;
- font-size: 50px;
-}
-
-#submit{
-  background-color: #07836E;
-  font-size: 12px;
-  padding: 10px 24px;
-  border-radius: 12px;
-  color: white;
- 
-
+ .h6 {
+    text-align: center;
 }
 
 .bg-olive {
-  background-color:#39a1c7;
+    background-color:#39a1c7;
 }
 
 .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: white;
-  color: black;
-  text-align: center;
-  font-size: 10px;
-  font-family: 'Marvel', sans-serif;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 10px;
+    font-family: 'Marvel', sans-serif;
 }
 
-.m0{
-  font-family: 'Marvel', sans-serif;
-  font-size: 30px;
-  font-weight: 800;
+.h3{
+    font-size: 20px;
+    font-weight: 800;
+    font-family: 'Noto Sans', sans-serif;
+
 }
 
 .block{
-  font-family: 'Marvel', sans-serif;
+    font-family: 'Marvel', sans-serif;
 }
-
-
-
-
 
 /*   Breakpoints */
 
@@ -221,11 +171,18 @@ a.link {
     height: 250px;
   }
 
+  #transparent-background {
+    height: auto;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
+  #steps {
+    padding: 60px 80px 60px 80px;;
+  }
   .h1 {
     font-size: 16px;
   }
-
-
 
   .mt4 {
      margin-top: 0;
