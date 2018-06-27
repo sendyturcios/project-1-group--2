@@ -1,0 +1,194 @@
+
+/* navbar */
+
+nav {
+    height: 20px;
+}
+
+.clearfix {
+    color: black;
+}
+
+/* Results banner  */
+
+header {
+    height: 300px;
+  
+}
+
+.h3{
+    color: black;
+    font-family: 'Marvel', sans-serif;
+    font-size: 30px;
+}
+
+.h1 {
+    color: black;
+    font-family: 'Marvel', sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+
+/* table */
+
+* {
+    box-sizing: border-box;
+}
+
+.categoryDiv {
+    width: 200px;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bolder;
+
+   
+}
+
+.productContainer {
+    width: 90%;
+    margin: 0 auto;
+    padding: 35px;
+    border-radius: 25px;
+}
+
+.headerDiv {
+    text-align: center;
+    font-family: 'Marvel', sans-serif;
+    
+
+}
+
+.trHeader {
+    background-color: #39a1c7;
+    font-size: 40px;
+    font-weight: bolder;
+    color: white;
+    
+}
+
+.trChildEven {
+   
+    font-size: 25px;
+    font-family: 'Marvel', sans-serif;
+    text-align: center;
+}
+
+.trChildOdd {
+   
+    font-size: 25px;
+    font-family: 'Marvel', sans-serif;
+    text-align: center;
+}
+
+.productDiv {
+    width: 250px;
+    margin: 20px auto;
+}
+
+.productImg {
+    width: 150px;
+    border-radius: 8px;
+}
+
+.priceDiv {
+    text-align: center;
+    margin: 120px 0;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.optionButton {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    font-size: 25px;
+    padding: 5px;
+    margin: 10px auto;
+    text-align: center;
+    font-family: 'Marvel', sans-serif;
+    border-radius: 12px;
+}
+
+.storeButton {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    font-size: 25px;
+    padding: 5px;
+    margin: 10px auto;
+    text-align: center;
+    font-family: 'Marvel', sans-serif;
+    border-radius: 12px;
+    border: 2px solid  rgb(12, 12, 12);
+}
+
+.optionsDiv {
+    margin: 64px 0;
+}
+
+
+
+
+/* footer */
+
+
+ 
+.bg-olive {
+    background-color:#39a1c7;
+}  
+
+
+
+.fa {
+    padding: 5px;
+    font-size: 30px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+    
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+   
+    
+  }
+  
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+  
+  
+   /* copyright text centered */
+  .h6 {
+    text-align: center;
+    color: black;
+  }
+
+  .m0{
+    font-family: 'Marvel', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+  }
+
+  .block{
+    font-family: 'Marvel', sans-serif;
+  }
+  
+/* -------------------------------------------------------------------------------------------------------- */
+

@@ -1,6 +1,8 @@
 // apiKey:  8nvceubtr5ha96hcrf8g96r8
 // http://api.walmartlabs.com/v1/items?
 
+//http://api.walmartlabs.com/v1/search?apiKey=8nvceubtr5ha96hcrf8g96r8&query=iodine&query=laxative
+
 // http://api.walmartlabs.com/v1/items?apiKey=8nvceubtr5ha96hcrf8g96r8
 // http://api.walmartlabs.com/v1/search?apiKey=8nvceubtr5ha96hcrf8g96r8
 // http://api.walmartlabs.com/v1/stores?apiKey={apiKey}&zip=77063&format=json
@@ -24,32 +26,31 @@ function walmartBegin(container) {
 //----------------------------------------------------------------------------------------------------------
 
 function findWalmartProducts(categories, elemTag) {
-    let category = categories[0];
-    categories.shift();
-    let query = "https://api.walmartlabs.com/v1/search?apiKey=" + apiKey + "&query=" + category + "&format=json";
-    try {
-        query = encodeURI(query);
+    for (let i = 0; i < 5; i++) {
+        let category = categories[i];
+        let query = "https://api.walmartlabs.com/v1/search?apiKey=" + apiKey + "&query=" + category + "&numItems=5" + "&format=json";
+        try {
+            query = encodeURI(query);
+        }
+        catch{ }
+        $.ajax({
+            url: query,
+            method: "GET",
+            dataType: 'jsonp'
+        }).then(function (response) {
+            let tempArray = [];
+            tempArray.push(category);
+            tempArray.push(response);
+            prodResponse.push(tempArray);
+            getData(response, category);
+        }).catch(function (err) {           
+            noFoundForCat(category);
+            console.log(err.errors.error.code);
+        });
+        if(i === categories.length - 1){
+            break;
+        }
     }
-    catch{ }
-    $.ajax({
-        url: query,
-        method: "GET",
-        dataType: 'jsonp'
-    }).then(function (response) {
-        let tempArray = [];
-        tempArray.push(category);
-        tempArray.push(response);
-        prodResponse.push(tempArray);
-        let finished = getData(response, category);
-        if (categories.length > 0) {
-            setTimeout(findWalmartProducts(categories, elemTag), 1000);
-        }
-    }).catch(function (err) {
-        if (categories.length > 0) {
-            let error = noFoundForCat(category);
-            findWalmartProducts(categories, elemTag);
-        }
-    });
 }
 
 //----------------------------------------------------------------------------------------------------------

@@ -1,6 +1,5 @@
 $(document).ready(function () {
     let apiKey = "8nvceubtr5ha96hcrf8g96r8";
-    let prodResponse = [];
     let trCounter = 0;
     let container = $(".productContainer");
     let table = $("<table>");
@@ -30,7 +29,7 @@ $(document).ready(function () {
             method: "GET",
             dataType: 'jsonp'
         }).then(function (response) {
-           setTimeout(displayResponseStores(response, elemTag), 1000);
+           displayResponseStores(response, elemTag);
         }).catch(function (err) {
             let error = nothingFound(category);
         });
@@ -130,25 +129,25 @@ $(document).ready(function () {
                 let phoneDivM = $("<div>");
                 let openSundaysM = $("<td>");
                 let openSundaysDivM = $("<div>");
-                nameDivM.addClass("categoryDiv")
+                nameDivM.addClass("storeDiv")
                 nameDivM.text(item.name);
                 nameM.append(nameDivM);
-                streetDivM.addClass("categoryDiv")
+                streetDivM.addClass("storeDiv")
                 streetDivM.text(item.streetAddress);
                 streetM.append(streetDivM);
-                cityDivM.addClass("categoryDiv")
+                cityDivM.addClass("storeDiv")
                 cityDivM.text(item.city);
                 cityM.append(cityDivM);
-                stateDivM.addClass("categoryDiv")
+                stateDivM.addClass("storeDiv")
                 stateDivM.text(item.stateProvCode);
                 stateM.append(stateDivM);
-                zipDivM.addClass("categoryDiv")
+                zipDivM.addClass("storeDiv")
                 zipDivM.text(item.zip);
                 zipM.append(zipDivM);
-                phoneDivM.addClass("categoryDiv")
+                phoneDivM.addClass("storeDiv")
                 phoneDivM.text(item.phoneNumber);
                 phoneM.append(phoneDivM);
-                openSundaysDivM.addClass("categoryDiv")
+                openSundaysDivM.addClass("storeDiv")
                 if (item.sundayOpen) {
                     openSundaysDivM.text("Yes");
                 }
