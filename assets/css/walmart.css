@@ -18,13 +18,13 @@ header {
 
 .h3{
     color: black;
-    font-family: 'Marvel', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     font-size: 30px;
 }
 
 .h1 {
     color: black;
-    font-family: 'Marvel', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     font-size: 50px;
     font-weight: bold;
 }
@@ -55,7 +55,7 @@ header {
 
 .headerDiv {
     text-align: center;
-    font-family: 'Marvel', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     
 
 }
@@ -71,19 +71,19 @@ header {
 .trChildEven {
    
     font-size: 25px;
-    font-family: 'Marvel', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     text-align: center;
 }
 
 .trChildOdd {
    
     font-size: 25px;
-    font-family: 'Marvel', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     text-align: center;
 }
 
 .productDiv {
-    width: 250px;
+    width: 100%;
     margin: 20px auto;
 }
 
@@ -107,7 +107,7 @@ header {
     padding: 5px;
     margin: 10px auto;
     text-align: center;
-    font-family: 'Marvel', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     border-radius: 12px;
 }
 
@@ -119,7 +119,7 @@ header {
     padding: 5px;
     margin: 10px auto;
     text-align: center;
-    font-family: 'Marvel', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     border-radius: 12px;
     border: 2px solid  rgb(12, 12, 12);
 }
@@ -181,14 +181,96 @@ header {
   }
 
   .m0{
-    font-family: 'Marvel', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     font-size: 30px;
     font-weight: 800;
   }
 
   .block{
-    font-family: 'Marvel', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
   }
   
 /* -------------------------------------------------------------------------------------------------------- */
 
+/* Store locator results   */ 
+
+.headerDiv {
+    background-color:#39a1c7;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+
+}
+
+.categoryDiv {
+    font-size: 14px;
+}
+
+.td{
+    width: 20px;
+    border-radius: 25px;
+}
+
+
+/* footer */
+
+.bg-olive {
+    background-color:#39a1c7;
+  }
+  
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 10px;
+  }
+  
+  .m0{
+   
+    font-size: 30px;
+    font-weight: 800;
+  }
+  
+  /* social media icons*/
+
+
+.fa {
+    padding: 5px;
+    font-size: 30px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+    
+  }
+  
+  /* media icons */
+  .fa:hover {
+      opacity: 0.7;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+   
+    
+  }
+  
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+  
+  
+  
