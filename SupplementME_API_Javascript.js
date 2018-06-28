@@ -1,117 +1,44 @@
-surveyResults[i].q.question
 
-let surveyResults = [
-   {
-       "q": {
-           "question": "What is your name?",
-           "options": "",
-           "answer": "",
-       }
-   },
-   {
-       "q": {
-           "question": "How old are you?",
-           "options": ["18-24", "25-34", "35-44", "45-54", "55+"],
-           "answer": "",
-       },
-   },
-   {
-       "q": {
-           "question": "How often do you workout?",
-           "options": ["0", "1-2/ Week", "3-4/ Week"],
-           "answer": "",
-       }
-   },
-   {
-       "q": {
-           "question": "How often do you eat a balanced meal?",
-           "options": ["0", "1 meal/ day", "2meals/ day"],
-           "answer": "",
-       }
-   },
-       {
-       "q": {
-           "question": "On Average, how many cups of water do you drink per day?",
-           "options": ["0", "1-2", "3-5"],
-           "answer": "",
-       }
-   },
-   {
-       "q": {
-           "question": "On Average, how many hours of sleep do you get per night?",
-           "options": ["1-4", "5-6"],
-           "answer": "",
-       }
-   },
-   {
-       "q": {
-           "question": "How often do you feel tired/fatigued?",
-           "options": ["Rarely", "Sometimes", "Often", "All the time"],
-           "answer": "",
-       }
-   },
-   {
-       "q": {
-           "question": "How often do you feel stressed?",
-           "options": ["Rarely", "Sometimes", "Often", "All the time"],
-           "answer": "",
-       }
-   },
-   {
-       "q": {
-           "question": "How often do you have trouble focusing?",
-           "options": ["Rarely", "Sometimes", "Often", "All the time"],
-           "answer": "",
-       }
-   },
-   {
-       "q": {
-           "question": "How often do you get at least 20+ minutes of sun per day?",
-           "options": ["Never", "Rarely", "Sometimes", "Often"],
-           "answer": "",
-       }
-   },
-   {
-       "q": {
-           "question": "How would you descride your mood?",
-           "options": ["'(", ":(", ":|", ":)"],
-           "answer": "",
-       }
-   },
-   {
-       "q": {
-           "question": "Are you looking to lose weight?",
-           "options": ["Yes", "No"],
-           "answer": "",
-       }
-   },
-   {
-       "q": {
-           "question": "How many bowel movements do you have per day?",
-           "options": ["0", "1", "2"],
-           "answer": "",
-       }
-   },
-   {
-       "q": {
-           "question": "Do you every feel gassy/bloated?",
-           "options": ["Rarely", "Sometimes", "Often", "All the time"],
-           "answer": "",
-       }
-   },
-   {
-       "q": {
-           "question": "Do dairy products upset your stomach?",
-           "options": ["Rarely", "Sometimes", "Often", "All the time"],
-           "answer": "",
-       }
-   },
-   {
-       "q": {
-           "question": "Are you worried about hair loss?",
-           "options": ["Yes", "No"],
-           "answer": "",
-       },
-   }
-]
-var supplements = ()
+// The below code fills in the first row of the table
+var trending_news = "Health News Articles";
+var queryURL = "https://api.nutritionix.com/v1_1/search/supplement?results=0%3A20&cal_min=0&cal_max=50000&fields=item_name%2Cbrand_name%2Citem_id%2Cbrand_id&appId=ae6176c4&appKey=b5598709f4e2219dfbdb4d56c66bea69"
+    //var appId = "ae6176c4";
+    //var apiKey = "b5598709f4e2219dfbdb4d56c66bea69"
+$.ajax({
+    url: queryURL,
+    method: "GET"
+}).then(function(response) {
+    console.log(response)
+        // Get reference to existing tbody element, create a new table row element
+    var tBody = $("#health-table > tbody");
+    var tRow = $("<tr>");
+    var data = response.hits
+
+
+    for (let i = 0; i < data.length; i++) {
+        console.log("response.Brand_Name", response.hits[i].fields.brand_name);
+        console.log("response.Item_Name", response.hits[i].fields.item_name);
+        console.log("response.Brand_ID", response.hits[i].fields.item_id);
+        console.log("response.Item.ID", response.hits[i].fields.item_id);
+    }
+
+    // Methods run on jQuery selectors return the selector they we run on
+    // This is why we can create and save a reference to a td in the same statement we update its text
+    var brand_name = $("<td>").text(response.hits[0].fields.brand_name);
+    var item_name = $("<td>").text(response.hits[0].fields.item_name);
+    var brand_id = $("<td>").text(response.hits[0].fields.brand_id);
+    var item_id = $("<td>").text(response.hits[0].fields.item_id);
+
+    // Append the newly created table data to the table row
+    tRow.append(brand_nameTd, item_nameTd, brand_idTd, item_idTd);
+    // Append the table row to the table body
+    tBody.append(tRow);
+}); // This .on("click") function will trigger the AJAX Call
+$("#find-nutrtioninformation").on("click", function(event) {
+
+            // event.preventDefault() can be used to prevent an event's default behavior.
+            // Here, it prevents the submit button from trying to submit a form when clicked
+            event.preventDefault();
+
+            // Here we grab the text from the input box
+            var product_supplement = $("#supplement-input").val();
