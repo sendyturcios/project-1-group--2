@@ -137,9 +137,9 @@ $(document).ready(function () {
     ]
 
     let QandA = 1;
+    let prev = 0;
 
-
-    //This funtion only creats the first question
+    /* This funtion only creats the first question */
     function name() {
         $("#question").text(surveyResults[0].q.question);
         let form = $("<form>");
@@ -157,12 +157,13 @@ $(document).ready(function () {
 
     name();
 
+    /* This grabs the gets the input from the form adn adds it to the object array */
     $(document).on("click", "#submit", function (event) {
         event.preventDefault();
         let ans1 = $("#name").val();
         console.log(ans1);
         surveyResults[0].q.answer = ans1;
-
+        
         if (ans1 === "") {
             let p = $("<p>");
             let warningMsg = p.text("Please input your name.").attr("id", "p-warn");
@@ -172,19 +173,24 @@ $(document).ready(function () {
             $("#anwsers").empty();
             $("#warning-msg").empty();
             grabQuestion();
+            prev++;
+
         }
     });
 
+    /* This grabs the question form the object */
 
     function grabQuestion() {
         if (QandA < 16) {
             $("#question").text(surveyResults[QandA].q.question);
             grabAnswers();
             console.log(surveyResults[QandA].q.question);
+            
         } else {
             $("#question").empty();
         }
     }
+    /* This iterate through the array of answers and populates the buttons */
 
     function grabAnswers() {
         $("#anwsers").empty();
@@ -210,6 +216,7 @@ $(document).ready(function () {
         }
     }
 
+    /* This listens to a button and grabs the next question and answers */
     $(document).on("click", ".btn", function () {
         console.log(QandA);
         let btnVal = $(this).attr("data-btn");
@@ -217,13 +224,28 @@ $(document).ready(function () {
         surveyResults[QandA].q.answer = btnVal
         console.log(surveyResults[QandA].q.answer)
         QandA++;
+        prev++
         grabQuestion();
         grabAnswers();
         if (QandA > 15) {
-            // alert("hello");  
             sendSurveyResultsToStorage(surveyResults);
             window.open("results.html", "_self");
         }
     })
+
+    /* This listens to a button next and previous */
+    
+   $("#prev").on("click", function() {
+      if (prev === 0){
+         $(this).attr("href", "index.html");
+      } else if (prev === 1){
+            name();
+      }  else if (prev > 1){
+            QandA--;
+            grabQuestion();
+            grabAnswers();
+      } 
+   })
+
 })
 
