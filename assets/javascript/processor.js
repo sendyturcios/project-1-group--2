@@ -108,7 +108,7 @@ let suppChart = [
     {
         "q": {
             "question": "How would you descride your mood?",
-            "options": ["'(", ":(", ":|", ":)"],
+            "options": ["Depressed", "Sad", "Neutral", "Happy"],
             "products": [["Laxative", "Vitamin B12", "Iodine", "Vitamin D", "Ginseng"], ["Laxative", "Vitamin B12", "Iodine", "Vitamin D", "Ginseng"], ["Laxative", "Vitamin B12", "Iodine", "Vitamin D", "Ginseng"], ["Laxative", "Vitamin B12", "Iodine", "Vitamin D", "Ginseng"]]
         }
     },
