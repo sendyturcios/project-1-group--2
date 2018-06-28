@@ -74,7 +74,6 @@ div.clearfix.border {
 .title {
     font-size: 30px;  
     font-family: 'Noto Sans', sans-serif;
-
 }
 
 /* social media icons*/
@@ -129,11 +128,7 @@ div.clearfix.border {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: white;
-    color: black;
     text-align: center;
-    font-size: 10px;
-    font-family: 'Marvel', sans-serif;
 }
 
 .h3{
@@ -141,10 +136,6 @@ div.clearfix.border {
     font-weight: 800;
     font-family: 'Noto Sans', sans-serif;
 
-}
-
-.block{
-    font-family: 'Marvel', sans-serif;
 }
 
 /*   Breakpoints */
@@ -155,6 +146,15 @@ div.clearfix.border {
     background-image: url(images/mobile-clouds-fashion-free.jpg);
     background-size: cover;
   }
+
+  #steps {
+    padding: 60px 20px 60px 20px;;
+  }
+
+  .title {
+    font-size: 20px; 
+  }
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -162,6 +162,15 @@ div.clearfix.border {
     background-image: url(images/mobile-clouds-fashion-free.jpg);
     background-size: cover;
   }
+
+  #steps {
+    padding: 60px 20px 60px 20px;;
+  }
+
+  .title {
+    font-size: 20px; 
+  }
+
 }
 
 @media only screen and (max-width: 576px) {
@@ -178,14 +187,27 @@ div.clearfix.border {
   }
 
   #steps {
-    padding: 60px 80px 60px 80px;;
+    padding: 60px 50px 60px 50px;;
   }
+
+  .title {
+    font-size: 20px; 
+  }
+
   .h1 {
     font-size: 16px;
   }
 
   .mt4 {
      margin-top: 0;
+   }
+
+   .mxn2{
+       margin-top: -12px;
+   }
+   
+   .h5 {
+       font-size: 12px;
    }
 
 }

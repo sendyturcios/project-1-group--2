@@ -38,16 +38,11 @@ function findWalmartProducts(categories, elemTag) {
             method: "GET",
             dataType: 'jsonp'
         }).then(function (response) {
-            let tempArray = [];
-            tempArray.push(category);
-            tempArray.push(response);
-            prodResponse.push(tempArray);
             getData(response, category);
-        }).catch(function (err) {           
+        }).catch(function (err) {
             noFoundForCat(category);
-            console.log(err.errors.error.code);
         });
-        if(i === categories.length - 1){
+        if (i === categories.length - 1) {
             break;
         }
     }

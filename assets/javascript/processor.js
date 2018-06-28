@@ -17,7 +17,10 @@ let ref = fdata.ref('answers');
 ref.on('value', gotData, errData);
 function gotData(data) {
     surveyResults = data.val();
-    start(); 
+    let cont = document.getElementById("productContainerId");
+    if (cont.children.length === 0) {
+        start();
+    }
 }
 
 function errData(err) {
@@ -108,7 +111,7 @@ let suppChart = [
     {
         "q": {
             "question": "How would you descride your mood?",
-            "options": ["'(", ":(", ":|", ":)"],
+            "options": ["Depressed", "Sad", "Neutral", "Happy"],
             "products": [["Laxative", "Vitamin B12", "Iodine", "Vitamin D", "Ginseng"], ["Laxative", "Vitamin B12", "Iodine", "Vitamin D", "Ginseng"], ["Laxative", "Vitamin B12", "Iodine", "Vitamin D", "Ginseng"], ["Laxative", "Vitamin B12", "Iodine", "Vitamin D", "Ginseng"]]
         }
     },
@@ -178,13 +181,13 @@ function calculateProducts() {
 function getWalmartProducts() {
     let container = $(".productContainer");
     container.empty();
-    walmartBegin(container);   
+    walmartBegin(container);
 }
 
 function getWalmartStoresByCity(city) {
     let container = $(".productContainer");
     container.empty();
-    listWalmartStoresByCity(city, container);    
+    listWalmartStoresByCity(city, container);
 }
 
 function getWalmartStoresByZip(zip) {
@@ -197,11 +200,13 @@ function start() {
     getWalmartProducts();
 }
 
-$(document).on("click", ".storeButton", function() {
+$(document).on("click", ".storeButton", function () {
     popUpStoreModal();
 })
 
-$(document).on("click", ".research", function() {
+$(document).on("click", ".research", function () {
+    let cat = $(this).attr("category");
+    window.localStorage.setItem("category", cat);
     window.open("SupplementMe.html");
 })
 
