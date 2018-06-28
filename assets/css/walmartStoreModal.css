@@ -70,3 +70,11 @@
     .storeButton:hover, .storeButton:active {
         background-color:#3c3e3f;
     }
+
+.bg-gray {
+    background-color:#39a1c7
+}
+
+.black {
+    color: rgb(255, 255, 255);
+}
