@@ -15,16 +15,16 @@ firebase.initializeApp(config);
 let fdata = firebase.database();
 
 function sendSurveyResultsToStorage(surveyResults) {
-    var entry = {
+    let entry = {
         "answers": surveyResults
     }
     fdata.ref().set(entry);
 }
 
-var ent;
+let ent;
 function getSurveyResultsFromStorage() {
-    var ref = fdata.ref("answers");
-   var x = ref.on("value", gotData, errData);
+    let ref = fdata.ref("answers");
+   let x = ref.on("value", gotData, errData);
    return ent;
 }
 
